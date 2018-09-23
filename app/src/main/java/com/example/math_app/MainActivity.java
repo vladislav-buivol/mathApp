@@ -22,28 +22,6 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity
 
         implements NavigationView.OnNavigationItemSelectedListener {
-    // Firmade nimed (grupp)
-    String[] groups = new String[] {"HTC", "Samsung", "LG"};
-
-    // названия телефонов (элементов)
-    String[] phonesHTC = new String[] {"Sensation", "Desire", "Wildfire", "Hero"};
-    String[] phonesSams = new String[] {"Galaxy S II", "Galaxy Nexus", "Wave"};
-    String[] phonesLG = new String[] {"Optimus", "Optimus Link", "Optimus Black", "Optimus One"};
-
-    // коллекция для групп
-    ArrayList<Map<String, String>> groupData;
-
-    // коллекция для элементов одной группы
-    ArrayList<Map<String, String>> childDataItem;
-
-    // общая коллекция для коллекций элементов
-    ArrayList<ArrayList<Map<String, String>>> childData;
-    // в итоге получится childData = ArrayList<childDataItem>
-
-    // список атрибутов группы или элемента
-    Map<String, String> m;
-
-    ExpandableListView elvMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
