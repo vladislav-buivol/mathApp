@@ -1,8 +1,6 @@
 language: android
 jdk: oraclejdk8
 sudo: false
-install: ant deps
-
 
 env:
   global:
@@ -65,3 +63,11 @@ script:
 
 after_failure:
   - cat $TRAVIS_BUILD_DIR/app/build/reports/lint-results.xml
+
+jobs:
+  include:
+    - script: ./test 1 # uses the default stage name "test"
+    - script: ./test 2
+    - stage: deploy
+      script: ./deploy target-1
+    - script: ./deploy target-2
