@@ -64,8 +64,6 @@ after_failure:
 
 jobs:
   include:
-    - script: ./test 1 # uses the default stage name "test"
-    - script: ./test 2
-    - stage: deploy
-      script: ./deploy target-1
-    - script: ./deploy target-2
+    - stage: "Tests"                # naming the Tests stage
+      name: "Unit Tests"            # names the first Tests stage job
+      script: ./app\src\test\java\com\example\math_app\ExampleUnitTest.java
