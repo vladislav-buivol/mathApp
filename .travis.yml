@@ -59,9 +59,6 @@ script:
 #  - adb shell input keyevent 82 &
   - ./gradlew connectedDebugAndroidTest -PdisablePreDex --continue --stacktrace
 
-after_failure:
-  - cat $TRAVIS_BUILD_DIR/app/build/reports/lint-results.xml
-
 jobs:
   include:
     - stage: "Tests"                # naming the Tests stage
