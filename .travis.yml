@@ -46,7 +46,7 @@ android:
 
 script:
   - android list targets
-  - "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
+  #- "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
   #- echo no | android create avd --force -n test -t "android-"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
   #- emulator -avd test -no-window &
   #- mkdir -p build/reports
