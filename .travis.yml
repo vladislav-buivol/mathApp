@@ -1,4 +1,8 @@
+<<<<<<< 792f26241674c811bd1273010702b27e0deeca51
 language: android
+=======
+﻿language: android
+>>>>>>> Travis test
 jdk: oraclejdk8
 sudo: false
 
@@ -60,4 +64,8 @@ jobs:
   include:
     - stage: "Tests"                # naming the Tests stage
       name: "Unit Tests"            # names the first Tests stage job
+<<<<<<< 792f26241674c811bd1273010702b27e0deeca51
       script: ./app\src\test\java\com\example\math_app\ExampleUnitTest.java
+=======
+      script: ./app\src\test\java\com\example\math_app\ExampleUnitTest.java
+>>>>>>> Travis test
