@@ -41,6 +41,10 @@
             android:id="@+id/nav_gymnaasium"
             android:title="Gümnaasium"
             />
+        <item
+            android:id="@+id/quad_calc"
+            android:title="Ruutvõrrandi lahendaja"
+            />
     </group>
 
     <item android:title="Communicate">
