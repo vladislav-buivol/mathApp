@@ -11,11 +11,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import static java.lang.StrictMath.round;
 
 public class Quadratic_calculator_Activity extends AppCompatActivity {
-
+    private Toolbar toolbar;
     double a;
     double b;
     double c;
@@ -66,6 +67,11 @@ public class Quadratic_calculator_Activity extends AppCompatActivity {
                 String text = "Lahendid puuduvad";
                 info.setText(text);
                 zeroFields();
+            } else if (inputA.getText().toString().trim().equals("-") ||
+                    inputB.getText().toString().trim().equals("-") ||
+                    inputC.getText().toString().trim().equals("-")){
+                String text = "Lahendid puuduvad";
+                info.setText(text);
             } else if (ifXNull()){
                 String text = "Nulliga ei saa jagada";
                 info.setText(text);
@@ -106,7 +112,11 @@ public class Quadratic_calculator_Activity extends AppCompatActivity {
         a = Double.parseDouble(inputA.getText().toString());
         b = Double.parseDouble(inputB.getText().toString());
         c = Double.parseDouble(inputC.getText().toString());
-        double underSquareRoot = Math.pow(2,b)-(4*a*c);
+        double underSquareRoot = Math.pow(b,2)-(4*a*c);
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(underSquareRoot);
         return underSquareRoot < 0;
     }
     public void calculate(){
@@ -114,12 +124,15 @@ public class Quadratic_calculator_Activity extends AppCompatActivity {
         b = Double.parseDouble(inputB.getText().toString());
         c = Double.parseDouble(inputC.getText().toString());
 
-        double underSquareRoot = Math.pow(2,b)-(4*a*c);
-        double anwserX1 = round(((-b+Math.sqrt(underSquareRoot))/(2*a))*1000)/1000;
-        double anwserX2 =  Math.round(((-b-Math.sqrt(underSquareRoot))/(2*a))*1000)/1000;
+        double underSquareRoot = Math.pow(b,2)-(4*a*c);
+        double anwserX1 = (((-1)*b)+Math.sqrt(underSquareRoot))/(2*a);
+        double anwserX2 = (((-1)*b)-Math.sqrt(underSquareRoot))/(2*a);
 
-        String stringx1 = "X1 = " + Double.toString(anwserX1);
-        String stringx2 = "X2 = " + Double.toString(anwserX2);
+        double roundedX1 = (double)Math.round(anwserX1 * 10000d) / 10000d;
+        double roundedX2 = (double)Math.round(anwserX2 * 10000d) / 10000d;
+
+        String stringx1 = "X1 = " + Double.toString(roundedX1);
+        String stringx2 = "X2 = " + Double.toString(roundedX2);
 
         x1.setText(stringx1);
         x2.setText(stringx2);

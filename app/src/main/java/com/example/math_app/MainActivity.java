@@ -107,6 +107,10 @@ public class MainActivity extends AppCompatActivity
                                 "\nItem: "+ String.valueOf(childPosition), Toast.LENGTH_SHORT)
                         .show();
                 view.setSelected(true);
+                if(groupPosition==7 && childPosition==0){
+                    Intent i = new Intent(MainActivity.this,Quadratic_calculator_Activity.class);
+                    MainActivity.this.startActivity(i);
+                }
                 if (view_Group != null) {
                     view_Group.setBackgroundColor(Color.parseColor("#ffffff"));
                 }
@@ -138,6 +142,7 @@ public class MainActivity extends AppCompatActivity
         listDataHeader.add("menu5");
         listDataHeader.add("menu6");
         listDataHeader.add("menu7");
+        listDataHeader.add("Kalkulaatorid");
         //listDataHeader.add("Ruutvõrrandi lahendaja");
 
 
@@ -172,10 +177,12 @@ public class MainActivity extends AppCompatActivity
         heading6.add("Submenu");
 
         List<String> heading7 = new ArrayList<String>();
-        heading4.add("Submenu");
-        heading4.add("Submenu");
+        heading7.add("Submenu");
+        heading7.add("Submenu");
 
-        //List<String> headingRuutLahendaja = new ArrayList<String>();
+        List<String> kalkulaatorid = new ArrayList<String>();
+        kalkulaatorid.add("Ruutvõrrandi kalkulaator");
+        kalkulaatorid.add("Intressi kalkulaator");
 
 
         listDataChild.put(listDataHeader.get(0), heading1);// Header, Child data
@@ -185,6 +192,7 @@ public class MainActivity extends AppCompatActivity
         listDataChild.put(listDataHeader.get(4), heading5);
         listDataChild.put(listDataHeader.get(5), heading6);
         listDataChild.put(listDataHeader.get(6), heading7);
+        listDataChild.put(listDataHeader.get(7), kalkulaatorid);
         //listDataChild.put(listDataHeader.get(7),new ArrayList<String>());
 
     }
@@ -230,9 +238,8 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
         if(id == R.id.action_ruutLahendaja){
-            Log.i("jõuabsiia", "RuutLahendaja");
-            Intent i = new Intent(this,Quadratic_calculator_Activity.class);
-            this.startActivity(i);
+            /*Intent i = new Intent(this,Quadratic_calculator_Activity.class);
+            this.startActivity(i);*/
         }
 
         return super.onOptionsItemSelected(item);

@@ -24,17 +24,17 @@
         app:layout_constraintTop_toBottomOf="@+id/InputC" />
 
     <EditText
-        android:id="@+id/InputC"
+        android:id="@+id/InputA"
         android:layout_width="104dp"
         android:layout_height="39dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="numberDecimal|numberSigned"
-        android:text="0"
+        android:text="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/attributeC"
-        app:layout_constraintTop_toBottomOf="@+id/InputB" />
+        app:layout_constraintStart_toEndOf="@+id/attributeA"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
         android:id="@+id/InputB"
@@ -48,6 +48,19 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/attributeB"
         app:layout_constraintTop_toBottomOf="@+id/InputA" />
+
+    <EditText
+        android:id="@+id/InputC"
+        android:layout_width="104dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal|numberSigned"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/attributeC"
+        app:layout_constraintTop_toBottomOf="@+id/InputB" />
 
     <TextView
         android:id="@+id/attributeB"
@@ -101,18 +114,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-    <EditText
-        android:id="@+id/InputA"
-        android:layout_width="104dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="numberDecimal|numberSigned"
-        android:text="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/attributeA"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
 
     <TextView
         android:id="@+id/anwserX2"
