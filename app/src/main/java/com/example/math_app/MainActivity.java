@@ -111,6 +111,10 @@ public class MainActivity extends AppCompatActivity
                     Intent i = new Intent(MainActivity.this,Quadratic_calculator_Activity.class);
                     MainActivity.this.startActivity(i);
                 }
+                if(groupPosition==7 && childPosition==1){
+                    Intent i = new Intent(MainActivity.this,Interest_Calculator.class);
+                    MainActivity.this.startActivity(i);
+                }
                 if (view_Group != null) {
                     view_Group.setBackgroundColor(Color.parseColor("#ffffff"));
                 }

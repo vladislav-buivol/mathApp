@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Interest_Calculator">
+
+    <TextView
+        android:id="@+id/lihtintress"
+        android:layout_width="319dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Lihtintress:"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputintress" />
+
+    <TextView
+        android:id="@+id/liitintress"
+        android:layout_width="319dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Liitintress:"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lihtintress" />
+
+    <EditText
+        android:id="@+id/inputintress"
+        android:layout_width="146dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal|numberSigned"
+        app:layout_constraintEnd_toStartOf="@+id/textpercent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/intresstext"
+        app:layout_constraintTop_toBottomOf="@+id/inputperiood" />
+
+    <TextView
+        android:id="@+id/intresstext"
+        android:layout_width="107dp"
+        android:layout_height="39dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Intress:"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toStartOf="@+id/inputintress"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/perioodtext" />
+
+    <EditText
+        android:id="@+id/inputperiood"
+        android:layout_width="146dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal|numberSigned"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/perioodtext"
+        app:layout_constraintTop_toBottomOf="@+id/inputsumma" />
+
+    <TextView
+        android:id="@+id/perioodtext"
+        android:layout_width="107dp"
+        android:layout_height="39dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Periood:"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toStartOf="@+id/inputperiood"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summa" />
+
+    <EditText
+        android:id="@+id/inputsumma"
+        android:layout_width="146dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="numberDecimal|numberSigned"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/summa"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/summa"
+        android:layout_width="107dp"
+        android:layout_height="39dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Summa:"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toStartOf="@+id/inputsumma"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textpercent"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:text="%"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/inputintress"
+        app:layout_constraintTop_toBottomOf="@+id/inputperiood" />
+
+</android.support.constraint.ConstraintLayout>

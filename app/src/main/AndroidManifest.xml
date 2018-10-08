@@ -23,6 +23,10 @@
             android:name=".Quadratic_calculator_Activity"
             android:label="Ruutvõrrandi lahendamine">
         </activity>
+        <activity
+            android:name=".Interest_Calculator"
+            android:label="Intresside arvutaja">
+        </activity>
     </application>
 
 </manifest>

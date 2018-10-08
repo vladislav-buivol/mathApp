@@ -16,7 +16,6 @@ import android.widget.Toolbar;
 import static java.lang.StrictMath.round;
 
 public class Quadratic_calculator_Activity extends AppCompatActivity {
-    private Toolbar toolbar;
     double a;
     double b;
     double c;
