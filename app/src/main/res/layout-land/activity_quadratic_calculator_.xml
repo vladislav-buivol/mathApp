@@ -7,35 +7,6 @@
     android:animateLayoutChanges="true"
     tools:context=".Quadratic_calculator_Activity">
 
-    <TextView
-        android:id="@+id/anwserX"
-        android:layout_width="233dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="X1 = "
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputC" />
-
-    <EditText
-        android:id="@+id/InputA"
-        android:layout_width="104dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="numberDecimal|numberSigned"
-        android:text="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/attributeA"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
     <EditText
         android:id="@+id/InputB"
         android:layout_width="104dp"
@@ -44,23 +15,10 @@
         android:ems="10"
         android:inputType="numberDecimal|numberSigned"
         android:text="0"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/attributeC"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/attributeB"
-        app:layout_constraintTop_toBottomOf="@+id/InputA" />
-
-    <EditText
-        android:id="@+id/InputC"
-        android:layout_width="104dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="numberDecimal|numberSigned"
-        android:text="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/attributeC"
-        app:layout_constraintTop_toBottomOf="@+id/InputB" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/attributeB"
@@ -70,27 +28,75 @@
         android:text="b:"
         android:textSize="26sp"
         app:layout_constraintEnd_toStartOf="@+id/InputB"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/InputA"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/anwserX"
+        android:layout_width="233dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="X1 = "
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/attributeA" />
+        app:layout_constraintTop_toBottomOf="@+id/InputB" />
+
+    <EditText
+        android:id="@+id/InputA"
+        android:layout_width="104dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal|numberSigned"
+        android:text="1"
+        app:layout_constraintEnd_toStartOf="@+id/attributeB"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/attributeA"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <EditText
+        android:id="@+id/InputC"
+        android:layout_width="104dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal|numberSigned"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/attributeC"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/attributeC"
         android:layout_width="33dp"
-        android:layout_height="40dp"
+        android:layout_height="39dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="c:"
         android:textSize="26sp"
         app:layout_constraintEnd_toStartOf="@+id/InputC"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/attributeB" />
+        app:layout_constraintStart_toEndOf="@+id/InputB"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="379dp"
-        android:layout_height="100dp"
+        android:layout_height="79dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -105,6 +111,8 @@
         android:id="@+id/attributeA"
         android:layout_width="33dp"
         android:layout_height="39dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="a:"
         android:textSize="26sp"
@@ -113,7 +121,6 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
 
 
     <TextView
