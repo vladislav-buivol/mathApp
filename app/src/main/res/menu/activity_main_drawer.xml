@@ -2,13 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-    <ExpandableListView
-        android:id="@+id/elvMain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </ExpandableListView>
     <group android:checkableBehavior="single">
-
         <item
             android:id="@+id/nav_1"
             android:title="1. klass" />
@@ -40,6 +34,10 @@
         <item
             android:id="@+id/nav_gymnaasium"
             android:title="Gümnaasium"
+            />
+        <item
+            android:id="@+id/quad_calc"
+            android:title="Ruutvõrrandi lahendaja"
             />
     </group>
 
