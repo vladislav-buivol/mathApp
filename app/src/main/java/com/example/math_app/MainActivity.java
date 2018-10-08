@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     View view_Group;
+    private int KALKULAATORID = 10;
+    private int SUB_KALKULAATORID_RUUT_LAH = 0;
+    private int SUB_KALKULAATORID_INTRESSI_LAH = 1;
     private DrawerLayout mDrawerLayout;
     ExpandableListAdapter mMenuAdapter;
     ExpandableListView expandableList;
@@ -107,11 +110,13 @@ public class MainActivity extends AppCompatActivity
                                 "\nItem: "+ String.valueOf(childPosition), Toast.LENGTH_SHORT)
                         .show();
                 view.setSelected(true);
-                if(groupPosition==7 && childPosition==0){
+                if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_RUUT_LAH){
+
                     Intent i = new Intent(MainActivity.this,Quadratic_calculator_Activity.class);
                     MainActivity.this.startActivity(i);
+
                 }
-                if(groupPosition==7 && childPosition==1){
+                if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_INTRESSI_LAH){
                     Intent i = new Intent(MainActivity.this,Interest_Calculator.class);
                     MainActivity.this.startActivity(i);
                 }
@@ -139,65 +144,87 @@ public class MainActivity extends AppCompatActivity
         listDataChild = new HashMap<String, List<String>>();
 
         // Adding data header
-        listDataHeader.add("menu1");
-        listDataHeader.add("menu2");
-        listDataHeader.add("menu3");
-        listDataHeader.add("menu4");
-        listDataHeader.add("menu5");
-        listDataHeader.add("menu6");
-        listDataHeader.add("menu7");
+        listDataHeader.add("1. klass");
+        listDataHeader.add("2. klass");
+        listDataHeader.add("3. klass");
+        listDataHeader.add("4. klass");
+        listDataHeader.add("5. klass");
+        listDataHeader.add("6. klass");
+        listDataHeader.add("7. klass");
+        listDataHeader.add("8. klass");
+        listDataHeader.add("9. klass");
+        listDataHeader.add("Gümnaasium");
+
         listDataHeader.add("Kalkulaatorid");
         //listDataHeader.add("Ruutvõrrandi lahendaja");
 
 
         // Adding child data
-        List<String> heading1 = new ArrayList<String>();
-        heading1.add("Submenu");
-        heading1.add("Submenu");
-        heading1.add("Submenu");
+        List<String> klass_1 = new ArrayList<String>();
+
+        klass_1.add("Submenu");
+        klass_1.add("Submenu");
+        klass_1.add("Submenu");
 
 
-        List<String> heading2 = new ArrayList<String>();
-        heading2.add("Submenu");
-        heading2.add("Submenu");
-        heading2.add("Submenu");
-        heading2.add("Submenu");
+        List<String> klass_2 = new ArrayList<String>();
+        klass_2.add("Submenu");
+        klass_2.add("Submenu");
+        klass_2.add("Submenu");
+        klass_2.add("Submenu");
 
-        List<String> heading3 = new ArrayList<String>();
-        heading3.add("Submenu");
-        heading3.add("Submenu");
+        List<String> klass_3 = new ArrayList<String>();
+        klass_3.add("Submenu");
+        klass_3.add("Submenu");
 
-        List<String> heading4 = new ArrayList<String>();
-        heading4.add("Submenu");
-        heading4.add("Submenu");
+        List<String> klass_4 = new ArrayList<String>();
+        klass_4.add("Submenu");
+        klass_4.add("Submenu");
 
-        List<String> heading5 = new ArrayList<String>();
-        heading5.add("Submenu");
-        heading5.add("Submenu");
-        heading5.add("Submenu");
+        List<String> klass_5 = new ArrayList<String>();
+        klass_5.add("Submenu");
+        klass_5.add("Submenu");
+        klass_5.add("Submenu");
 
-        List<String> heading6 = new ArrayList<String>();
-        heading6.add("Submenu");
-        heading6.add("Submenu");
+        List<String> klass_6 = new ArrayList<String>();
+        klass_6.add("Submenu");
+        klass_6.add("Submenu");
 
-        List<String> heading7 = new ArrayList<String>();
-        heading7.add("Submenu");
-        heading7.add("Submenu");
+        List<String> klass_7 = new ArrayList<String>();
+        klass_7.add("Submenu");
+        klass_7.add("Submenu");
+
+        List<String> klass_8 = new ArrayList<String>();
+        klass_8.add("Submenu");
+        klass_8.add("Submenu");
+
+        List<String> klass_9 = new ArrayList<String>();
+        klass_9.add("Submenu");
+        klass_9.add("Submenu");
+
+        List<String> gymnasium = new ArrayList<String>();
+        gymnasium.add("Submenu");
+        gymnasium.add("Submenu");
 
         List<String> kalkulaatorid = new ArrayList<String>();
-        kalkulaatorid.add("Ruutvõrrandi kalkulaator");
-        kalkulaatorid.add("Intressi kalkulaator");
+        kalkulaatorid.add("Ruutvõrrandi kalkulaator"); //SUB_KALKULAATORID_RUUT_LAH = 0;
+        kalkulaatorid.add("Intressi kalkulaator"); //SUB_KALKULAATORID_INTRESSI_LAH = 1;
 
+        Log.i("TAAG",listDataChild.toString());
+        Log.i("TAAG",listDataHeader.toString());
 
-        listDataChild.put(listDataHeader.get(0), heading1);// Header, Child data
-        listDataChild.put(listDataHeader.get(1), heading2);
-        listDataChild.put(listDataHeader.get(2), heading3);
-        listDataChild.put(listDataHeader.get(3), heading4);
-        listDataChild.put(listDataHeader.get(4), heading5);
-        listDataChild.put(listDataHeader.get(5), heading6);
-        listDataChild.put(listDataHeader.get(6), heading7);
-        listDataChild.put(listDataHeader.get(7), kalkulaatorid);
-        //listDataChild.put(listDataHeader.get(7),new ArrayList<String>());
+        listDataChild.put(listDataHeader.get(0), klass_1);// Header, Child data
+        listDataChild.put(listDataHeader.get(1), klass_2);
+        listDataChild.put(listDataHeader.get(2), klass_3);
+        listDataChild.put(listDataHeader.get(3), klass_4);
+        listDataChild.put(listDataHeader.get(4), klass_5);
+        listDataChild.put(listDataHeader.get(5), klass_6);
+        listDataChild.put(listDataHeader.get(6), klass_7);
+        listDataChild.put(listDataHeader.get(7), klass_8);
+        listDataChild.put(listDataHeader.get(8), klass_9);
+        listDataChild.put(listDataHeader.get(9), gymnasium);
+        listDataChild.put(listDataHeader.get(KALKULAATORID), kalkulaatorid);
+        //listDataChild.put(listDataHeader.get(11),new ArrayList<String>());
 
     }
 
