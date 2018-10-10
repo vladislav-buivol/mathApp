@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     View view_Group;
-    private int KALKULAATORID = 10;
+    private int KALKULAATORID = 11;
     private int SUB_KALKULAATORID_RUUT_LAH = 0;
     private int SUB_KALKULAATORID_INTRESSI_LAH = 1;
     private DrawerLayout mDrawerLayout;
@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity
                         .show();
                 view.setSelected(true);
                 if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_RUUT_LAH){
-
                     Intent i = new Intent(MainActivity.this,Quadratic_calculator_Activity.class);
                     MainActivity.this.startActivity(i);
 
