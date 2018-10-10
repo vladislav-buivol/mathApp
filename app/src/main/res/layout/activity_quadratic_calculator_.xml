@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    tools:context=".Quadratic_calculator_Activity">
+    tools:context=".Quadratic_calculator_Activity"
+    tools:layout_editor_absoluteY="50dp">
 
     <TextView
         android:id="@+id/anwserX"
@@ -17,7 +18,7 @@
         android:layout_marginRight="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="x1 ="
+        android:text="X1 ="
         android:textSize="26sp"
         app:layout_constraintBottom_toTopOf="@+id/anwserX2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,7 +130,7 @@
         android:layout_marginRight="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:text="x2 ="
+        android:text="X2 ="
         android:textSize="26sp"
         app:layout_constraintBottom_toTopOf="@+id/info"
         app:layout_constraintEnd_toEndOf="parent"
