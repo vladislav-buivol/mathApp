@@ -162,7 +162,6 @@ public class MainActivity extends AppCompatActivity
         listDataChild = new HashMap<String, List<String>>();
 
         // Adding data header
-        listDataHeader.add("Lemmikud");
         listDataHeader.add("1. klass");
         listDataHeader.add("2. klass");
         listDataHeader.add("3. klass");
@@ -173,15 +172,13 @@ public class MainActivity extends AppCompatActivity
         listDataHeader.add("8. klass");
         listDataHeader.add("9. klass");
         listDataHeader.add("Gümnaasium");
+        listDataHeader.add("Lemmikud");
 
         listDataHeader.add("Kalkulaatorid");
         //listDataHeader.add("Ruutvõrrandi lahendaja");
 
 
         // Adding child data
-        List<String> lemmikud = new ArrayList<String>();
-        lemmikud.add("Minu lemmikud");
-
         List<String> klass_1 = new ArrayList<String>();
 
         klass_1.add("Submenu");
@@ -228,6 +225,9 @@ public class MainActivity extends AppCompatActivity
         gymnasium.add("Submenu");
         gymnasium.add("Submenu");
 
+        List<String> lemmikud = new ArrayList<String>();
+        lemmikud.add("Minu lemmikud");
+
         List<String> kalkulaatorid = new ArrayList<String>();
         kalkulaatorid.add("Ruutvõrrandi kalkulaator"); //SUB_KALKULAATORID_RUUT_LAH = 0;
         kalkulaatorid.add("Intressi kalkulaator"); //SUB_KALKULAATORID_INTRESSI_LAH = 1;
@@ -235,17 +235,17 @@ public class MainActivity extends AppCompatActivity
         Log.i("TAAG",listDataChild.toString());
         Log.i("TAAG",listDataHeader.toString());
 
-        listDataChild.put(listDataHeader.get(0), lemmikud);
-        listDataChild.put(listDataHeader.get(1), klass_1);// Header, Child data
-        listDataChild.put(listDataHeader.get(2), klass_2);
-        listDataChild.put(listDataHeader.get(3), klass_3);
-        listDataChild.put(listDataHeader.get(4), klass_4);
-        listDataChild.put(listDataHeader.get(5), klass_5);
-        listDataChild.put(listDataHeader.get(6), klass_6);
-        listDataChild.put(listDataHeader.get(7), klass_7);
-        listDataChild.put(listDataHeader.get(8), klass_8);
-        listDataChild.put(listDataHeader.get(9), klass_9);
-        listDataChild.put(listDataHeader.get(10), gymnasium);
+        listDataChild.put(listDataHeader.get(0), klass_1);// Header, Child data
+        listDataChild.put(listDataHeader.get(1), klass_2);
+        listDataChild.put(listDataHeader.get(2), klass_3);
+        listDataChild.put(listDataHeader.get(3), klass_4);
+        listDataChild.put(listDataHeader.get(4), klass_5);
+        listDataChild.put(listDataHeader.get(5), klass_6);
+        listDataChild.put(listDataHeader.get(6), klass_7);
+        listDataChild.put(listDataHeader.get(7), klass_8);
+        listDataChild.put(listDataHeader.get(8), klass_9);
+        listDataChild.put(listDataHeader.get(9), gymnasium);
+        listDataChild.put(listDataHeader.get(10), lemmikud);
         listDataChild.put(listDataHeader.get(KALKULAATORID), kalkulaatorid);
         //listDataChild.put(listDataHeader.get(11),new ArrayList<String>());
 

@@ -1,57 +1,50 @@
 language: android
 jdk: oraclejdk8
 sudo: required
-
-before_cache:
-  -rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-  -rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+before_cache: "-rm -f $HOME/.gradle/caches/modules-2/modules-2.lock -rm -fr $HOME/.gradle/caches/*/plugin-resolution/"
 cache:
-  directories:
-    -$HOME/.gradle/caches/
-    -$HOME/.gradle/wrapper/
-    -$HOME/.android/build-cache
-
+  directories: "-$HOME/.gradle/caches/ -$HOME/.gradle/wrapper/ -$HOME/.android/build-cache"
 env:
   global:
-    - ANDROID_API=28
-    - ANDROID_EMULATOR_LEVEL=18
-    - ANDROID_BUILD_TOOLS_VERSION=28.0.1
-    - ADB_INSTALL_TIMEOUT=5
-    - ANDROID_ABI=armeabi-v7a
-    - ANDROID_TAG=google_apis
-    - QEMU_AUDIO_DRV=none
-
+  - ANDROID_API=28
+  - ANDROID_EMULATOR_LEVEL=18
+  - ANDROID_BUILD_TOOLS_VERSION=28.0.1
+  - ADB_INSTALL_TIMEOUT=5
+  - ANDROID_ABI=armeabi-v7a
+  - ANDROID_TAG=google_apis
+  - QEMU_AUDIO_DRV=none
+  - secure: I6Z4IqKVeHOcvjfxVIJCWaEC6CwZ7ZPDqmdxOjpx9gLppV288jybbcu9fOCRkBC2OMQq4Z2kk5JuIBtfEpDtE8MG0roSwBqdjN9ZO8Qh+sFslQk3W15uhHtcqniVjOuo1EP3Pf6euvzFfb3UO06jVTSWThCMPB5leJaswTGHgOwvwrwC5ZKujfTQAcCFwfD7AKYPO7U0Wt0ZGwrYGdOfwKfFhs2/k6a/gxwQfj+2Unk5I3ZpPiYGo377pW99HbeaTLMIRiS0xwphHO5N5xl4WuXRLoz1Ptp24o6Nn/clqixunxSsbjPwwIfqDD5e2pNPCta8v4qRuzbevvra2BASkD4yXO3/GFrrcfwcAd9ZpporJc4R92CNc1CNQFSHy36u43ydJbO8w1G5VBQlppUOzLobiMl1XLmiKqM5EpTPsqnqjQerpfawiTaTq1/RG4tfYBv2zNCFLhYqTfJfKqp1r3HAY6VCw+fB6JtvZUUOWskGVO1prAg6csoccyPESDykOgImWbdLa1g9lOFb5TywTuComrHZ2WGyRECM2UYXplST/f+QvMEu03+KhA2OpsSVxhTHGbcf0dmPqLNDLsdrVF+GsrV1Z6Qh4AnHHN8B+WMy9bK34WZpARQNmBZMprTTsN2sI9aze9WCe9UjGbCKe6I08M4BJx6Im17Ua+zRWOY=
+  - secure: tBKi/i6BkU+azfCj9oOaZMnqjViNt9wTfUqsEuItkINLQJ7TxBlhZzgAEPQo+JT7kAoPi2QsJxK5s/KnamsmVMUJcyA3k0Ka2gNwfAZ/YjCoHHXlBapzpRSkwdtgX8S3TimlDCCk1HS12ry8I2L7cZuJ2MaDtSNJAPdsZHwEiXoV9S7qk3i8e/Z+TwBfjUN95J88iMA7LnumeaMTXKwIYj4kpfOhjCHzuLkyo9Zp6QP81dPr3yg7KatN3D7rPA9leyULJp1FtouUkzNfdZe13pskA1qlB9FDCOm+D9RJrBZJgdMyXVDO3m1taBohR9EIbCFKIrhbusQxrh3Br+SBZ3fJVvAy2SBiM7wV4Ap4DWhE1SduB79TY5B1cJwy4fis4zKt+Cop+cFXlJUBn66qb0OBMfUIIlwB/mvj1YJU+GbgbdiFaygVRNhmEDaDSwYXKRcSqpqpBVdc0ralmzqFezVDNCN7QM29tydb4x18aU9euCkXAnCfE2TCz0O5VKIBlGetWf8qJ6yocgRRrdLAgxXf85QjWdNI2GxfCdq5NUXaOOReUVpJvm+n8GzaB4KDzcI22m6wqJ5Umze8dcBIGPq0sHzgI8ypICQPwYZgFAmX8Y/4YIrIq09qmZ3i4KHrkzfBzkwwqqWQB3RNzndPO2ZEGIUpyIpA1fx5tqocTlk=
 android:
   components:
-    - tools
-    - platform-tools
-    - build-tools-$ANDROID_BUILD_TOOLS
-    - android-$ANDROID_API
-    - android-$EMULATOR_API_LEVEL
-    - extra-google-m2repository
-    - extra-android-m2repository # for design library
-    - addon-google_apis-google-19 # google play services
-    - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
-    - sys-img-armeabi-v7a-addon-google_apis-google-$EMULATOR_API_LEVEL
+  - tools
+  - platform-tools
+  - build-tools-$ANDROID_BUILD_TOOLS
+  - android-$ANDROID_API
+  - android-$EMULATOR_API_LEVEL
+  - extra-google-m2repository
+  - extra-android-m2repository
+  - addon-google_apis-google-19
+  - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
+  - sys-img-armeabi-v7a-addon-google_apis-google-$EMULATOR_API_LEVEL
   licenses:
-    - android-sdk-preview-license-.+
-    - android-sdk-license-.+
-    - google-gdk-license-.+
-
-#before_script:
- # - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
-  #- emulator -avd test -no-skin -no-audio -no-window &
-  #- android-wait-for-emulator
-  #- adb shell input keyevent 82 &
-
+  - android-sdk-preview-license-.+
+  - android-sdk-license-.+
+  - google-gdk-license-.+
 script:
-  - android list targets
-  #- "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
-  #- echo no | android create avd --force -n test -t "android-"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
-  #- emulator -avd test -no-window &
-  #- mkdir -p build/reports
-#  - ./gradlew dependencyCheckAnalyze
-  #- ./gradlew assembleDebugAndroidTest -PdisablePreDex --continue --stacktrace
-  #- android-wait-for-emulator
-#  - adb shell input keyevent 82 &
-  #- ./gradlew connectedDebugAndroidTest -PdisablePreDex --continue --stacktrace
+- android list targets
+#before_install:
+#- openssl aes-256-cbc -K $encrypted_12e97ba04df2_key -iv $encrypted_12e97ba04df2_iv
+ # -in android.jks.enc -out android.jks -d
+ 
+deploy:
+  provider: releases
+  skip_cleanup: true
+  overwrite: true
+  api_key:
+    secure: UjYmSLc7XYC13ckag7JcyP2qresvZn6j3YUjlZ+93KgMj14MDP+BcWV8ngsGR5FKHinkuVeMIVTWRaky5uOiVfAQeVjHNYT6cImo1iLzHxH3fx22Rc8xe/MCjtFePL8X2gYdxE7NVNbYIMReMCZFfM1s3KIBZmehI80PObjB0G2PeRIlVclcI0YWw7Qvgmi1b6+lZF6PkwuZvAMzGB+jqcs338GhM/wwbWh07uzZJCUT//edBWw7MX8bZEKmnLCGtgcdwwUQ4b5Zz2MA8WfDp2Aua5BGekxUc/TlEakdn9KGEIsRjiSEFFJaXuLsDXfi3rDh2nYHyE86Vw91RwIOC3C0UOBfgz5nv27JavlOEYfXaf8PV1YqwYYSMYO1JTBL3H7nxN5JhZXsvLjUyCVzuD+2CsEA6hItihBxLsBSG5ZjFaxSgzXKu+P6JMpWFHT3YyADqBeBTkUgEueSnoeyi8g50W1sI3r3Q0X1dZrRmhOy+OFFRRCMcf/qPZ/MARQCiCubL0Pnh+OUFskdmE0tmyyx8kPaqeunzNbUkyUigvEWCyfSUnIMKLQuzqf+6cO4g0i+OXTuKMAKONBveS4NNBSvrwGjPHNoft6lmKij+2m2tGzUFQDYoYiLMatFRV/j1HxGIk8z3ksQTxaqsghl7g3qhGrwwEwnN6hbFdVNOaw=
+  file_glob: true
+  file: "../app/release/*"
+  on:
+    repo: vladbbb/mathApp
+    tags: true
