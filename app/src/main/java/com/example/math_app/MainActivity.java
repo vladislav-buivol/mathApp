@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentActivity;
+
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,10 +21,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.math_app.ExpandableListAdapter;
-import com.example.math_app.R;
+import com.example.math_app.fragments.Fragment_quad_calc;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,6 +42,10 @@ public class MainActivity extends AppCompatActivity
     ExpandableListView expandableList;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    Quadratic_calculator_Activity quadratic_calculator_activity = new Quadratic_calculator_Activity();
+    Fragment_quad_calc quad_calc = new Fragment_quad_calc();
+    FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
+
     //Icons, use as you want
     /*static int[] icon = { R.drawable.ico1, R.drawable.ico1,
             R.drawable.ico1, R.drawable.ico1,
@@ -98,7 +105,8 @@ public class MainActivity extends AppCompatActivity
         // setting list adapter
         expandableList.setAdapter(mMenuAdapter);
 
-        expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+                expandableList.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView,
                                         View view,
@@ -111,13 +119,24 @@ public class MainActivity extends AppCompatActivity
                         .show();
                 view.setSelected(true);
                 if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_RUUT_LAH){
-                    Intent i = new Intent(MainActivity.this,Quadratic_calculator_Activity.class);
-                    MainActivity.this.startActivity(i);
+                    //Intent i = new Intent(MainActivity.this,Quadratic_calculator_Activity.class);
+                    //MainActivity.this.startActivity(i);
+                    //TextView textView = (TextView) findViewById(R.id.na);
+
+                    //textView.setText("Hello");
+
+                    // update the main content by replacing fragments
+
+
+                    ftrans.replace(R.id.container,quad_calc);
+                    ftrans.commit();
+
 
                 }
                 if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_INTRESSI_LAH){
-                    Intent i = new Intent(MainActivity.this,Interest_Calculator.class);
-                    MainActivity.this.startActivity(i);
+                    //Intent i = new Intent(MainActivity.this,Interest_Calculator.class);
+                    //MainActivity.this.startActivity(i);
+
                 }
                 if (view_Group != null) {
                     view_Group.setBackgroundColor(Color.parseColor("#ffffff"));
