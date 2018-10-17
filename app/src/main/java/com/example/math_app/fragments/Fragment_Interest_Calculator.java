@@ -4,9 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.math_app.R;
 
@@ -28,6 +32,16 @@ public class Fragment_Interest_Calculator extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    EditText inputSumma;
+    EditText inputPeriood;
+    EditText inputIntress;
+
+    double summa;
+    double periood;
+    double intress;
+
+    TextView lihtIntress;
+    TextView liitIntress;
     private OnFragmentInteractionListener mListener;
 
     public Fragment_Interest_Calculator() {
@@ -59,6 +73,7 @@ public class Fragment_Interest_Calculator extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+       ;
     }
 
     @Override
@@ -75,7 +90,7 @@ public class Fragment_Interest_Calculator extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
+/*
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -86,7 +101,7 @@ public class Fragment_Interest_Calculator extends Fragment {
                     + " must implement OnFragmentInteractionListener");
         }
     }
-
+*/
     @Override
     public void onDetach() {
         super.onDetach();
@@ -106,5 +121,67 @@ public class Fragment_Interest_Calculator extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        inputSumma = getView().findViewById(R.id.inputsumma);
+        inputPeriood = getView().findViewById(R.id.inputperiood);
+        inputIntress = getView().findViewById(R.id.inputintress);
+
+        inputSumma.addTextChangedListener(new GenericTextWatcher(inputSumma));
+        inputPeriood.addTextChangedListener(new GenericTextWatcher(inputPeriood));
+        inputIntress.addTextChangedListener(new GenericTextWatcher(inputIntress));
+
+        lihtIntress = getView().findViewById(R.id.lihtintress);
+        liitIntress = getView().findViewById(R.id.liitintress);
+    }
+
+    private class GenericTextWatcher implements TextWatcher {
+        private View view;
+
+        private GenericTextWatcher(View view) {
+            this.view = view;
+        }
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if (inputSumma.getText().toString().trim().equals("") ||
+                    inputPeriood.getText().toString().trim().equals("") ||
+                    inputIntress.getText().toString().trim().equals("")) {
+                emptyInputs();
+            } else if (inputSumma.getText().toString().trim().equals("-") ||
+                    inputPeriood.getText().toString().trim().equals("-") ||
+                    inputIntress.getText().toString().trim().equals("-")){
+                emptyInputs();
+            } else {
+                calculate();
+            }
+        }
+        @Override
+        public void afterTextChanged(Editable s) { }
+    }
+    public void emptyInputs(){
+        String lihtText = "Lihtintress: ";
+        String liitText = "Liitintress: ";
+        lihtIntress.setText(lihtText);
+        liitIntress.setText(liitText);
+    }
+    public void calculate(){
+        summa = Double.parseDouble(inputSumma.getText().toString());
+        periood = Double.parseDouble(inputPeriood.getText().toString());
+        intress = Double.parseDouble(inputIntress.getText().toString());
+
+        double lihtSum = summa* periood *(intress/100) + summa;
+        double liitSum = summa * Math.pow((1+(intress/100)),periood);
+
+        double roundedLihtSum = (double)Math.round(lihtSum * 10000d) / 10000d;
+        double roundedLiitSum = (double)Math.round(liitSum * 10000d) / 10000d;
+
+        String lihtText = "Lihtintress: " + Double.toString(roundedLihtSum);
+        String liitText = "Liitintress: " + Double.toString(roundedLiitSum);
+        lihtIntress.setText(lihtText);
+        liitIntress.setText(liitText);
     }
 }

@@ -4,9 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.math_app.R;
 
@@ -29,6 +33,20 @@ public class Fragment_quad_calc extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    double a;
+    double b;
+    double c;
+
+    TextView x1;
+    TextView x2;
+
+    TextView info;
+
+    EditText inputA;
+    EditText inputB;
+    EditText inputC;
+
 
     public Fragment_quad_calc() {
         // Required empty public constructor
@@ -59,6 +77,12 @@ public class Fragment_quad_calc extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        TextView mTextView;
+
+        TextView   one = (TextView) getActivity().findViewById(R.id.anwserX);
+
+
+
     }
 
     @Override
@@ -108,4 +132,111 @@ public class Fragment_quad_calc extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
+    private class GenericTextWatcher implements TextWatcher {
+        private View view;
+
+        private GenericTextWatcher(View view) {
+            this.view = view;
+        }
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if (inputA.getText().toString().trim().equals("") ||
+                    inputB.getText().toString().trim().equals("") ||
+                    inputC.getText().toString().trim().equals("")) {
+                String text = "Lahendid puuduvad";
+                info.setText(text);
+                zeroFields();
+            } else if (inputA.getText().toString().trim().equals("-") ||
+                    inputB.getText().toString().trim().equals("-") ||
+                    inputC.getText().toString().trim().equals("-")){
+                String text = "Lahendid puuduvad";
+                info.setText(text);
+            } else if (ifXNull()){
+                String text = "Nulliga ei saa jagada";
+                info.setText(text);
+                setImaginary();
+            } else if(ifSquareRootNeg()){
+                String text = "Ruutjuure all negatiivne arv";
+                info.setText(text);
+                setImaginary();
+            } else {
+                calculate();
+                String text = "";
+                info.setText(text);
+            }
+        }
+        @Override
+        public void afterTextChanged(Editable s) { }
+    }
+    public void zeroFields(){
+        String setx1 = "X1 = ";
+        String setx2 = "X2 = ";
+
+        x1.setText(setx1);
+        x2.setText(setx2);
+    }
+    public void setImaginary(){
+        String setx1 = "X1 = imaginaararv";
+        String setx2 = "X2 = imaginaararv";
+
+        x1.setText(setx1);
+        x2.setText(setx2);
+    }
+
+    public boolean ifXNull(){
+        a = Double.parseDouble(inputA.getText().toString());
+        return a == 0;
+    }
+    public boolean ifSquareRootNeg(){
+        a = Double.parseDouble(inputA.getText().toString());
+        b = Double.parseDouble(inputB.getText().toString());
+        c = Double.parseDouble(inputC.getText().toString());
+        double underSquareRoot = Math.pow(b,2)-(4*a*c);
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(underSquareRoot);
+        return underSquareRoot < 0;
+    }
+    public void calculate(){
+        a = Double.parseDouble(inputA.getText().toString());
+        b = Double.parseDouble(inputB.getText().toString());
+        c = Double.parseDouble(inputC.getText().toString());
+
+        double underSquareRoot = Math.pow(b,2)-(4*a*c);
+        double anwserX1 = (((-1)*b)+Math.sqrt(underSquareRoot))/(2*a);
+        double anwserX2 = (((-1)*b)-Math.sqrt(underSquareRoot))/(2*a);
+
+        double roundedX1 = (double)Math.round(anwserX1 * 10000d) / 10000d;
+        double roundedX2 = (double)Math.round(anwserX2 * 10000d) / 10000d;
+
+        String stringx1 = "X1 = " + Double.toString(roundedX1);
+        String stringx2 = "X2 = " + Double.toString(roundedX2);
+
+        x1.setText(stringx1);
+        x2.setText(stringx2);
+    }
+
+    //https://stackoverflow.com/questions/33469159/android-fragment-and-null-object-reference
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+
+        x1 = (TextView) getView().findViewById(R.id.anwserX);
+        x2 = getView().findViewById(R.id.anwserX2);
+
+        inputA = getView().findViewById(R.id.InputA);
+        inputB = getView().findViewById(R.id.InputB);
+        inputC = getView().findViewById(R.id.InputC);
+
+        info = getView().findViewById(R.id.info);
+
+        inputA.addTextChangedListener(new GenericTextWatcher(inputA));
+        inputB.addTextChangedListener(new GenericTextWatcher(inputB));
+        inputC.addTextChangedListener(new GenericTextWatcher(inputC));
+    }
 }
+

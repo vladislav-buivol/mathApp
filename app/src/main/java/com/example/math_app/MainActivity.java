@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentActivity;
 
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -21,9 +20,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
+import com.example.math_app.fragments.Fragment_Interest_Calculator;
 import com.example.math_app.fragments.Fragment_quad_calc;
 
 import java.util.ArrayList;
@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity
     ExpandableListView expandableList;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
-    Quadratic_calculator_Activity quadratic_calculator_activity = new Quadratic_calculator_Activity();
+    //Quadratic_calculator_Activity quadratic_calculator_activity = new Quadratic_calculator_Activity();
     Fragment_quad_calc quad_calc = new Fragment_quad_calc();
-    FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
+    Fragment_Interest_Calculator interest_calculator = new Fragment_Interest_Calculator();
 
     //Icons, use as you want
     /*static int[] icon = { R.drawable.ico1, R.drawable.ico1,
@@ -118,6 +118,8 @@ public class MainActivity extends AppCompatActivity
                                 "\nItem: "+ String.valueOf(childPosition), Toast.LENGTH_SHORT)
                         .show();
                 view.setSelected(true);
+                FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
+
                 if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_RUUT_LAH){
                     //Intent i = new Intent(MainActivity.this,Quadratic_calculator_Activity.class);
                     //MainActivity.this.startActivity(i);
@@ -129,13 +131,16 @@ public class MainActivity extends AppCompatActivity
 
 
                     ftrans.replace(R.id.container,quad_calc);
+                    Quadratic_calculator_Activity quadratic_calculator_activity = new Quadratic_calculator_Activity();
                     ftrans.commit();
-
 
                 }
                 if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_INTRESSI_LAH){
                     //Intent i = new Intent(MainActivity.this,Interest_Calculator.class);
                     //MainActivity.this.startActivity(i);
+                    ftrans.replace(R.id.container,interest_calculator);
+                    Quadratic_calculator_Activity quadratic_calculator_activity = new Quadratic_calculator_Activity();
+                    ftrans.commit();
 
                 }
                 if (view_Group != null) {

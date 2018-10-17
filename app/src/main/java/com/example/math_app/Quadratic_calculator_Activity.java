@@ -32,6 +32,7 @@ public class Quadratic_calculator_Activity extends AppCompatActivity {
 
     private TextWatcher watcher;
 
+    public Quadratic_calculator_Activity(){}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
