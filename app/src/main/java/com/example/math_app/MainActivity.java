@@ -1,4 +1,7 @@
 package com.example.math_app;
+//https://stackoverflow.com/questions/49990933/configuration-on-demand-is-not-supported-by-the-current-version-of-the-android-g
+//https://github.com/PrivacyApps/html-textview
+
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -19,12 +22,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebView;
 import android.widget.ExpandableListView;
 
 import android.widget.Toast;
 
 import com.example.math_app.fragments.Fragment_Interest_Calculator;
+import com.example.math_app.fragments.Fragment_Klass_2;
 import com.example.math_app.fragments.Fragment_quad_calc;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,15 +43,17 @@ public class MainActivity extends AppCompatActivity
     private int KALKULAATORID = 11;
     private int SUB_KALKULAATORID_RUUT_LAH = 0;
     private int SUB_KALKULAATORID_INTRESSI_LAH = 1;
+    private int KLASS_2 = 1;
+    private int KLASS_2_ALL_MATERIALS = 0;
     private DrawerLayout mDrawerLayout;
     ExpandableListAdapter mMenuAdapter;
     ExpandableListView expandableList;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
-    //Quadratic_calculator_Activity quadratic_calculator_activity = new Quadratic_calculator_Activity();
     Fragment_quad_calc quad_calc = new Fragment_quad_calc();
     Fragment_Interest_Calculator interest_calculator = new Fragment_Interest_Calculator();
-
+    Fragment_Klass_2 klass_2_frag = new Fragment_Klass_2();
+    String klass_2_all_materials = "";
     //Icons, use as you want
     /*static int[] icon = { R.drawable.ico1, R.drawable.ico1,
             R.drawable.ico1, R.drawable.ico1,
@@ -120,28 +128,17 @@ public class MainActivity extends AppCompatActivity
                 view.setSelected(true);
                 FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
 
-                if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_RUUT_LAH){
-                    //Intent i = new Intent(MainActivity.this,Quadratic_calculator_Activity.class);
-                    //MainActivity.this.startActivity(i);
-                    //TextView textView = (TextView) findViewById(R.id.na);
-
-                    //textView.setText("Hello");
-
-                    // update the main content by replacing fragments
-
-
-                    ftrans.replace(R.id.container,quad_calc);
-                    Quadratic_calculator_Activity quadratic_calculator_activity = new Quadratic_calculator_Activity();
+                if(groupPosition == KLASS_2 && childPosition == KLASS_2_ALL_MATERIALS ){
+                    ftrans.replace(R.id.container,klass_2_frag);
                     ftrans.commit();
-
+                }
+                if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_RUUT_LAH){
+                    ftrans.replace(R.id.container,quad_calc);
+                    ftrans.commit();
                 }
                 if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_INTRESSI_LAH){
-                    //Intent i = new Intent(MainActivity.this,Interest_Calculator.class);
-                    //MainActivity.this.startActivity(i);
                     ftrans.replace(R.id.container,interest_calculator);
-                    Quadratic_calculator_Activity quadratic_calculator_activity = new Quadratic_calculator_Activity();
                     ftrans.commit();
-
                 }
                 if (view_Group != null) {
                     view_Group.setBackgroundColor(Color.parseColor("#ffffff"));
@@ -192,7 +189,7 @@ public class MainActivity extends AppCompatActivity
 
 
         List<String> klass_2 = new ArrayList<String>();
-        klass_2.add("Submenu");
+        klass_2.add("Klass 2 kõik materiaalid");
         klass_2.add("Submenu");
         klass_2.add("Submenu");
         klass_2.add("Submenu");
@@ -241,7 +238,7 @@ public class MainActivity extends AppCompatActivity
         Log.i("TAAG",listDataHeader.toString());
 
         listDataChild.put(listDataHeader.get(0), klass_1);// Header, Child data
-        listDataChild.put(listDataHeader.get(1), klass_2);
+        listDataChild.put(listDataHeader.get(KLASS_2), klass_2);
         listDataChild.put(listDataHeader.get(2), klass_3);
         listDataChild.put(listDataHeader.get(3), klass_4);
         listDataChild.put(listDataHeader.get(4), klass_5);
@@ -329,4 +326,23 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+/*
+    public String readHTML(String fileName) throws IOException {
+        InputStream is =getAssets().open(fileName);
+        int size = is.available();
+
+        byte[] buffer = new byte[size];
+        is.read(buffer);
+        is.close();
+
+        String str = new String(buffer);
+        str = str.replace("old string", "new string");
+        return str;
+    }
+*/
+
+
+
+
 }
