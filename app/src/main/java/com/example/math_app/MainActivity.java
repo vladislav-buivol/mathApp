@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity
 
 
         List<String> klass_2 = new ArrayList<String>();
-        klass_2.add("Klass 2 kõik materiaalid");
+        klass_2.add("Klass 2 kõik materjalid");
         klass_2.add("Submenu");
         klass_2.add("Submenu");
         klass_2.add("Submenu");
