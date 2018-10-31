@@ -28,6 +28,15 @@ import android.widget.ExpandableListView;
 import android.widget.Toast;
 
 import com.example.math_app.fragments.Fragment_Interest_Calculator;
+import com.example.math_app.fragments.Fragment_Klass_1_arvude_vordlemine;
+import com.example.math_app.fragments.Fragment_Klass_1_geomeetrilised_kujundid;
+import com.example.math_app.fragments.Fragment_Klass_1_mootuhikud;
+import com.example.math_app.fragments.Fragment_Klass_1_paaris_paaritud;
+import com.example.math_app.fragments.Fragment_Klass_1_tabel_lahutamine;
+import com.example.math_app.fragments.Fragment_Klass_1_tabel_liitmine;
+import com.example.math_app.fragments.Fragment_Klass_1_tabel_taiskumnete_lahutamine;
+import com.example.math_app.fragments.Fragment_Klass_1_tabel_taiskumnete_liitmine;
+import com.example.math_app.fragments.Fragment_Klass_1_uleminekuga_liitmine_ja_lahutamine;
 import com.example.math_app.fragments.Fragment_Klass_2;
 import com.example.math_app.fragments.Fragment_quad_calc;
 
@@ -43,7 +52,16 @@ public class MainActivity extends AppCompatActivity
     private int KALKULAATORID = 11;
     private int SUB_KALKULAATORID_RUUT_LAH = 0;
     private int SUB_KALKULAATORID_INTRESSI_LAH = 1;
+    private int KLASS_1 = 0;
     private int KLASS_2 = 1;
+    private int KLASS_3 = 2;
+    private int KLASS_4 = 3;
+    private int KLASS_5 = 4;
+    private int KLASS_6 = 5;
+    private int KLASS_7 = 6;
+    private int KLASS_8 = 7;
+    private int KLASS_9 = 8;
+    private int GYMNAASIUM = 9;
     private int KLASS_2_ALL_MATERIALS = 0;
     private DrawerLayout mDrawerLayout;
     ExpandableListAdapter mMenuAdapter;
@@ -53,6 +71,15 @@ public class MainActivity extends AppCompatActivity
     Fragment_quad_calc quad_calc = new Fragment_quad_calc();
     Fragment_Interest_Calculator interest_calculator = new Fragment_Interest_Calculator();
     Fragment_Klass_2 klass_2_frag = new Fragment_Klass_2();
+    Fragment_Klass_1_arvude_vordlemine arvude_vordlemine_frag = new Fragment_Klass_1_arvude_vordlemine();
+    Fragment_Klass_1_paaris_paaritud paaris_paaritud_frag = new Fragment_Klass_1_paaris_paaritud();
+    Fragment_Klass_1_uleminekuga_liitmine_ja_lahutamine uleminekuga_frag = new Fragment_Klass_1_uleminekuga_liitmine_ja_lahutamine();
+    Fragment_Klass_1_tabel_liitmine tabel_1_frag = new Fragment_Klass_1_tabel_liitmine();
+    Fragment_Klass_1_tabel_lahutamine tabel_2_frag = new Fragment_Klass_1_tabel_lahutamine();
+    Fragment_Klass_1_tabel_taiskumnete_liitmine tabel_3_frag = new Fragment_Klass_1_tabel_taiskumnete_liitmine();
+    Fragment_Klass_1_tabel_taiskumnete_lahutamine tabel_4_frag = new Fragment_Klass_1_tabel_taiskumnete_lahutamine();
+    Fragment_Klass_1_mootuhikud mootuhikud_frag = new Fragment_Klass_1_mootuhikud();
+    Fragment_Klass_1_geomeetrilised_kujundid geomeetrilised_frag = new Fragment_Klass_1_geomeetrilised_kujundid();
     String klass_2_all_materials = "";
     //Icons, use as you want
     /*static int[] icon = { R.drawable.ico1, R.drawable.ico1,
@@ -128,6 +155,42 @@ public class MainActivity extends AppCompatActivity
                 view.setSelected(true);
                 FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
 
+                if(groupPosition == KLASS_1 && childPosition == 0 ){
+                    ftrans.replace(R.id.container,arvude_vordlemine_frag);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_1 && childPosition == 1 ){
+                    ftrans.replace(R.id.container,paaris_paaritud_frag);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_1 && childPosition == 2 ){
+                    ftrans.replace(R.id.container,uleminekuga_frag);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_1 && childPosition == 3 ){
+                    ftrans.replace(R.id.container,tabel_1_frag);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_1 && childPosition == 4 ){
+                    ftrans.replace(R.id.container,tabel_2_frag);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_1 && childPosition == 5 ){
+                    ftrans.replace(R.id.container,tabel_3_frag);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_1 && childPosition == 6 ){
+                    ftrans.replace(R.id.container,tabel_4_frag);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_1 && childPosition == 7 ){
+                    ftrans.replace(R.id.container,mootuhikud_frag);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_1 && childPosition == 8 ){
+                    ftrans.replace(R.id.container,geomeetrilised_frag);
+                    ftrans.commit();
+                }
                 if(groupPosition == KLASS_2 && childPosition == KLASS_2_ALL_MATERIALS ){
                     ftrans.replace(R.id.container,klass_2_frag);
                     ftrans.commit();
@@ -182,11 +245,15 @@ public class MainActivity extends AppCompatActivity
 
         // Adding child data
         List<String> klass_1 = new ArrayList<String>();
-
-        klass_1.add("Submenu");
-        klass_1.add("Submenu");
-        klass_1.add("Submenu");
-
+        klass_1.add("Arvude võrdlemine");
+        klass_1.add("Paaris- ja paaritud arvud");
+        klass_1.add("Üleminekuga liitmine ja lahutamine");
+        klass_1.add("Tabel: arvude liitmine");
+        klass_1.add("Tabel: arvude lahutamine");
+        klass_1.add("Tabel: täiskümnete liitmine");
+        klass_1.add("Tabel: täiskümnete lahutamine");
+        klass_1.add("Mõõtühikud");
+        klass_1.add("Geomeetrilised kujundid");
 
         List<String> klass_2 = new ArrayList<String>();
         klass_2.add("Klass 2 kõik materjalid");
@@ -237,7 +304,7 @@ public class MainActivity extends AppCompatActivity
         Log.i("TAAG",listDataChild.toString());
         Log.i("TAAG",listDataHeader.toString());
 
-        listDataChild.put(listDataHeader.get(0), klass_1);// Header, Child data
+        listDataChild.put(listDataHeader.get(KLASS_1), klass_1);// Header, Child data
         listDataChild.put(listDataHeader.get(KLASS_2), klass_2);
         listDataChild.put(listDataHeader.get(2), klass_3);
         listDataChild.put(listDataHeader.get(3), klass_4);
