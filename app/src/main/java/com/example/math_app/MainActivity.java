@@ -144,6 +144,29 @@ import com.example.math_app.fragments.klass_5.Fragment_Klass_5_7;
 import com.example.math_app.fragments.klass_5.Fragment_Klass_5_8;
 import com.example.math_app.fragments.klass_5.Fragment_Klass_5_9;
 import com.example.math_app.fragments.calculators.Fragment_quad_calc;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_1;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_10;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_11;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_12;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_13;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_14;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_15;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_16;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_17;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_18;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_19;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_2;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_20;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_21;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_22;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_23;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_3;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_4;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_5;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_6;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_7;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_8;
+import com.example.math_app.fragments.klass_7.Fragment_Klass_7_9;
 
 
 import java.util.ArrayList;
@@ -294,6 +317,29 @@ public class MainActivity extends AppCompatActivity
     Fragment_Klass_6_22 klass_6_22 = new Fragment_Klass_6_22();
     Fragment_Klass_6_23 klass_6_23 = new Fragment_Klass_6_23();
     Fragment_Klass_6_24 klass_6_24 = new Fragment_Klass_6_24();
+    Fragment_Klass_7_1 klass_7_1 = new Fragment_Klass_7_1();
+    Fragment_Klass_7_2 klass_7_2 = new Fragment_Klass_7_2();
+    Fragment_Klass_7_3 klass_7_3 = new Fragment_Klass_7_3();
+    Fragment_Klass_7_4 klass_7_4 = new Fragment_Klass_7_4();
+    Fragment_Klass_7_5 klass_7_5 = new Fragment_Klass_7_5();
+    Fragment_Klass_7_6 klass_7_6 = new Fragment_Klass_7_6();
+    Fragment_Klass_7_7 klass_7_7 = new Fragment_Klass_7_7();
+    Fragment_Klass_7_8 klass_7_8 = new Fragment_Klass_7_8();
+    Fragment_Klass_7_9 klass_7_9 = new Fragment_Klass_7_9();
+    Fragment_Klass_7_10 klass_7_10 = new Fragment_Klass_7_10();
+    Fragment_Klass_7_11 klass_7_11 = new Fragment_Klass_7_11();
+    Fragment_Klass_7_12 klass_7_12 = new Fragment_Klass_7_12();
+    Fragment_Klass_7_13 klass_7_13 = new Fragment_Klass_7_13();
+    Fragment_Klass_7_14 klass_7_14 = new Fragment_Klass_7_14();
+    Fragment_Klass_7_15 klass_7_15 = new Fragment_Klass_7_15();
+    Fragment_Klass_7_16 klass_7_16 = new Fragment_Klass_7_16();
+    Fragment_Klass_7_17 klass_7_17 = new Fragment_Klass_7_17();
+    Fragment_Klass_7_18 klass_7_18 = new Fragment_Klass_7_18();
+    Fragment_Klass_7_19 klass_7_19 = new Fragment_Klass_7_19();
+    Fragment_Klass_7_20 klass_7_20 = new Fragment_Klass_7_20();
+    Fragment_Klass_7_21 klass_7_21 = new Fragment_Klass_7_21();
+    Fragment_Klass_7_22 klass_7_22 = new Fragment_Klass_7_22();
+    Fragment_Klass_7_23 klass_7_23 = new Fragment_Klass_7_23();
     //Icons, use as you want
     /*static int[] icon = { R.drawable.ico1, R.drawable.ico1,
             R.drawable.ico1, R.drawable.ico1,
@@ -869,6 +915,106 @@ public class MainActivity extends AppCompatActivity
                     ftrans.replace(R.id.container,klass_6_24);
                     ftrans.commit();
                 }
+                // 7. klass
+                // Arvud
+                if(groupPosition == KLASS_7 && childPosition == 0 ){
+                    ftrans.replace(R.id.container,klass_7_1);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 1 ){
+                    ftrans.replace(R.id.container,klass_7_2);
+                    ftrans.commit();
+                }
+                // Protsentarvutus
+                if(groupPosition == KLASS_7 && childPosition == 2 ){
+                    ftrans.replace(R.id.container,klass_7_3);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 3 ){
+                    ftrans.replace(R.id.container,klass_7_4);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 4 ){
+                    ftrans.replace(R.id.container,klass_7_5);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 5 ){
+                    ftrans.replace(R.id.container,klass_7_6);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 6 ){
+                    ftrans.replace(R.id.container,klass_7_7);
+                    ftrans.commit();
+                }
+                // Astendamine
+                if(groupPosition == KLASS_7 && childPosition == 7 ){
+                    ftrans.replace(R.id.container,klass_7_8);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 8 ){
+                    ftrans.replace(R.id.container,klass_7_9);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 9 ){
+                    ftrans.replace(R.id.container,klass_7_10);
+                    ftrans.commit();
+                }
+                // Statistika, andmed
+                if(groupPosition == KLASS_7 && childPosition == 10 ){
+                    ftrans.replace(R.id.container,klass_7_11);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 11 ){
+                    ftrans.replace(R.id.container,klass_7_12);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 12 ){
+                    ftrans.replace(R.id.container,klass_7_13);
+                    ftrans.commit();
+                }
+                // Võrrandid
+                if(groupPosition == KLASS_7 && childPosition == 13 ){
+                    ftrans.replace(R.id.container,klass_7_14);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 14 ){
+                    ftrans.replace(R.id.container,klass_7_15);
+                    ftrans.commit();
+                }
+                // Funktsioonid
+                if(groupPosition == KLASS_7 && childPosition == 15 ){
+                    ftrans.replace(R.id.container,klass_7_16);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 16 ){
+                    ftrans.replace(R.id.container,klass_7_17);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 17 ){
+                    ftrans.replace(R.id.container,klass_7_18);
+                    ftrans.commit();
+                }
+                // Geomeetria
+                if(groupPosition == KLASS_7 && childPosition == 18 ){
+                    ftrans.replace(R.id.container,klass_7_19);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 19 ){
+                    ftrans.replace(R.id.container,klass_7_20);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 20 ){
+                    ftrans.replace(R.id.container,klass_7_21);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 21 ){
+                    ftrans.replace(R.id.container,klass_7_22);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_7 && childPosition == 22 ){
+                    ftrans.replace(R.id.container,klass_7_23);
+                    ftrans.commit();
+                }
                 // Ruutvõrrandi kalkulaator
                 if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_RUUT_LAH){
                     ftrans.replace(R.id.container,quad_calc);
@@ -1049,8 +1195,29 @@ public class MainActivity extends AppCompatActivity
         klass_6.add("Kolmnurkne püstprisma");
 
         List<String> klass_7 = new ArrayList<String>();
-        klass_7.add("Submenu");
-        klass_7.add("Submenu");
+        klass_7.add("Arvuhulgad");
+        klass_7.add("Arvu absoluutväärtus");
+        klass_7.add("Protsendi leidmine");
+        klass_7.add("Terviku leidmine");
+        klass_7.add("Suhe, võrdeline seos");
+        klass_7.add("Pöördvõrdeline seos");
+        klass_7.add("Kasvamine, kahanemine");
+        klass_7.add("Astendamine");
+        klass_7.add("Astmed");
+        klass_7.add("Tehete järjekord");
+        klass_7.add("Sagedus, sagedustabel");
+        klass_7.add("Mood");
+        klass_7.add("Aritmeetiline keskmine");
+        klass_7.add("Võrdkujuline võrrand, võrre");
+        klass_7.add("Murdarvuline lineaarvõrrand");
+        klass_7.add("Funktsioon");
+        klass_7.add("Võrdeline seos");
+        klass_7.add("Lineaarne seos");
+        klass_7.add("Hulknurk");
+        klass_7.add("Rööpkülik");
+        klass_7.add("Romb");
+        klass_7.add("Trapets");
+        klass_7.add("Nelinurksed püstprismad");
 
         List<String> klass_8 = new ArrayList<String>();
         klass_8.add("Submenu");
