@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.Fragment_quad_calc">
+    tools:context=".fragments.calculators.Fragment_quad_calc">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

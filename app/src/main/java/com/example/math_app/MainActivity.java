@@ -25,69 +25,101 @@ import android.widget.ExpandableListView;
 
 import android.widget.Toast;
 
-import com.example.math_app.fragments.Fragment_Interest_Calculator;
-import com.example.math_app.fragments.Fragment_Klass_1_1;
-import com.example.math_app.fragments.Fragment_Klass_1_4;
-import com.example.math_app.fragments.Fragment_Klass_1_6;
-import com.example.math_app.fragments.Fragment_Klass_1_9;
-import com.example.math_app.fragments.Fragment_Klass_1_8;
-import com.example.math_app.fragments.Fragment_Klass_1_2;
-import com.example.math_app.fragments.Fragment_Klass_1_5;
-import com.example.math_app.fragments.Fragment_Klass_1_7;
-import com.example.math_app.fragments.Fragment_Klass_1_3;
-import com.example.math_app.fragments.Fragment_Klass_2_1;
-import com.example.math_app.fragments.Fragment_Klass_2_10;
-import com.example.math_app.fragments.Fragment_Klass_2_11;
-import com.example.math_app.fragments.Fragment_Klass_2_12;
-import com.example.math_app.fragments.Fragment_Klass_2_13;
-import com.example.math_app.fragments.Fragment_Klass_2_14;
-import com.example.math_app.fragments.Fragment_Klass_2_15;
-import com.example.math_app.fragments.Fragment_Klass_2_16;
-import com.example.math_app.fragments.Fragment_Klass_2_17;
-import com.example.math_app.fragments.Fragment_Klass_2_18;
-import com.example.math_app.fragments.Fragment_Klass_2_19;
-import com.example.math_app.fragments.Fragment_Klass_2_2;
-import com.example.math_app.fragments.Fragment_Klass_2_20;
-import com.example.math_app.fragments.Fragment_Klass_2_3;
-import com.example.math_app.fragments.Fragment_Klass_2_4;
-import com.example.math_app.fragments.Fragment_Klass_2_5;
-import com.example.math_app.fragments.Fragment_Klass_2_6;
-import com.example.math_app.fragments.Fragment_Klass_2_7;
-import com.example.math_app.fragments.Fragment_Klass_2_8;
-import com.example.math_app.fragments.Fragment_Klass_2_9;
-import com.example.math_app.fragments.Fragment_Klass_3_1;
-import com.example.math_app.fragments.Fragment_Klass_3_10;
-import com.example.math_app.fragments.Fragment_Klass_3_11;
-import com.example.math_app.fragments.Fragment_Klass_3_12;
-import com.example.math_app.fragments.Fragment_Klass_3_13;
-import com.example.math_app.fragments.Fragment_Klass_3_14;
-import com.example.math_app.fragments.Fragment_Klass_3_15;
-import com.example.math_app.fragments.Fragment_Klass_3_16;
-import com.example.math_app.fragments.Fragment_Klass_3_17;
-import com.example.math_app.fragments.Fragment_Klass_3_2;
-import com.example.math_app.fragments.Fragment_Klass_3_3;
-import com.example.math_app.fragments.Fragment_Klass_3_4;
-import com.example.math_app.fragments.Fragment_Klass_3_5;
-import com.example.math_app.fragments.Fragment_Klass_3_6;
-import com.example.math_app.fragments.Fragment_Klass_3_7;
-import com.example.math_app.fragments.Fragment_Klass_3_8;
-import com.example.math_app.fragments.Fragment_Klass_3_9;
-import com.example.math_app.fragments.Fragment_Klass_4_1;
-import com.example.math_app.fragments.Fragment_Klass_4_10;
-import com.example.math_app.fragments.Fragment_Klass_4_11;
-import com.example.math_app.fragments.Fragment_Klass_4_12;
-import com.example.math_app.fragments.Fragment_Klass_4_13;
-import com.example.math_app.fragments.Fragment_Klass_4_14;
-import com.example.math_app.fragments.Fragment_Klass_4_15;
-import com.example.math_app.fragments.Fragment_Klass_4_2;
-import com.example.math_app.fragments.Fragment_Klass_4_3;
-import com.example.math_app.fragments.Fragment_Klass_4_4;
-import com.example.math_app.fragments.Fragment_Klass_4_5;
-import com.example.math_app.fragments.Fragment_Klass_4_6;
-import com.example.math_app.fragments.Fragment_Klass_4_7;
-import com.example.math_app.fragments.Fragment_Klass_4_8;
-import com.example.math_app.fragments.Fragment_Klass_4_9;
-import com.example.math_app.fragments.Fragment_quad_calc;
+import com.example.math_app.fragments.calculators.Fragment_Interest_Calculator;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_1;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_4;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_6;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_9;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_8;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_2;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_5;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_7;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_3;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_1;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_10;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_11;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_12;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_13;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_14;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_15;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_16;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_17;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_18;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_19;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_2;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_20;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_3;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_4;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_5;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_6;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_7;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_8;
+import com.example.math_app.fragments.klass_2.Fragment_Klass_2_9;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_1;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_10;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_11;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_12;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_13;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_14;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_15;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_16;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_17;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_2;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_3;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_4;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_5;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_6;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_7;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_8;
+import com.example.math_app.fragments.klass_3.Fragment_Klass_3_9;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_1;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_10;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_11;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_12;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_13;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_14;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_15;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_2;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_3;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_4;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_5;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_6;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_7;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_8;
+import com.example.math_app.fragments.klass_4.Fragment_Klass_4_9;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_1;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_10;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_11;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_12;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_13;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_14;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_15;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_16;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_17;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_18;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_19;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_2;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_20;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_21;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_22;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_23;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_24;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_25;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_26;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_27;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_28;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_29;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_3;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_30;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_31;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_32;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_4;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_5;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_6;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_7;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_8;
+import com.example.math_app.fragments.klass_5.Fragment_Klass_5_9;
+import com.example.math_app.fragments.calculators.Fragment_quad_calc;
 
 
 import java.util.ArrayList;
@@ -182,6 +214,38 @@ public class MainActivity extends AppCompatActivity
     Fragment_Klass_4_13 klass_4_13 = new Fragment_Klass_4_13();
     Fragment_Klass_4_14 klass_4_14 = new Fragment_Klass_4_14();
     Fragment_Klass_4_15 klass_4_15 = new Fragment_Klass_4_15();
+    Fragment_Klass_5_1 klass_5_1 = new Fragment_Klass_5_1();
+    Fragment_Klass_5_2 klass_5_2 = new Fragment_Klass_5_2();
+    Fragment_Klass_5_3 klass_5_3 = new Fragment_Klass_5_3();
+    Fragment_Klass_5_4 klass_5_4 = new Fragment_Klass_5_4();
+    Fragment_Klass_5_5 klass_5_5 = new Fragment_Klass_5_5();
+    Fragment_Klass_5_6 klass_5_6 = new Fragment_Klass_5_6();
+    Fragment_Klass_5_7 klass_5_7 = new Fragment_Klass_5_7();
+    Fragment_Klass_5_8 klass_5_8 = new Fragment_Klass_5_8();
+    Fragment_Klass_5_9 klass_5_9 = new Fragment_Klass_5_9();
+    Fragment_Klass_5_10 klass_5_10 = new Fragment_Klass_5_10();
+    Fragment_Klass_5_11 klass_5_11 = new Fragment_Klass_5_11();
+    Fragment_Klass_5_12 klass_5_12 = new Fragment_Klass_5_12();
+    Fragment_Klass_5_13 klass_5_13 = new Fragment_Klass_5_13();
+    Fragment_Klass_5_14 klass_5_14 = new Fragment_Klass_5_14();
+    Fragment_Klass_5_15 klass_5_15 = new Fragment_Klass_5_15();
+    Fragment_Klass_5_16 klass_5_16 = new Fragment_Klass_5_16();
+    Fragment_Klass_5_17 klass_5_17 = new Fragment_Klass_5_17();
+    Fragment_Klass_5_18 klass_5_18 = new Fragment_Klass_5_18();
+    Fragment_Klass_5_19 klass_5_19 = new Fragment_Klass_5_19();
+    Fragment_Klass_5_20 klass_5_20 = new Fragment_Klass_5_20();
+    Fragment_Klass_5_21 klass_5_21 = new Fragment_Klass_5_21();
+    Fragment_Klass_5_22 klass_5_22 = new Fragment_Klass_5_22();
+    Fragment_Klass_5_23 klass_5_23 = new Fragment_Klass_5_23();
+    Fragment_Klass_5_24 klass_5_24 = new Fragment_Klass_5_24();
+    Fragment_Klass_5_25 klass_5_25 = new Fragment_Klass_5_25();
+    Fragment_Klass_5_26 klass_5_26 = new Fragment_Klass_5_26();
+    Fragment_Klass_5_27 klass_5_27 = new Fragment_Klass_5_27();
+    Fragment_Klass_5_28 klass_5_28 = new Fragment_Klass_5_28();
+    Fragment_Klass_5_29 klass_5_29 = new Fragment_Klass_5_29();
+    Fragment_Klass_5_30 klass_5_30 = new Fragment_Klass_5_30();
+    Fragment_Klass_5_31 klass_5_31 = new Fragment_Klass_5_31();
+    Fragment_Klass_5_32 klass_5_32 = new Fragment_Klass_5_32();
 
     //Icons, use as you want
     /*static int[] icon = { R.drawable.ico1, R.drawable.ico1,
@@ -521,6 +585,141 @@ public class MainActivity extends AppCompatActivity
                     ftrans.replace(R.id.container,klass_4_15);
                     ftrans.commit();
                 }
+                // 5. klass
+                // Arvud
+                if(groupPosition == KLASS_5 && childPosition == 0 ){
+                    ftrans.replace(R.id.container,klass_5_1);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 1 ){
+                    ftrans.replace(R.id.container,klass_5_2);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 2 ){
+                    ftrans.replace(R.id.container,klass_5_3);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 3 ){
+                    ftrans.replace(R.id.container,klass_5_4);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 4 ){
+                    ftrans.replace(R.id.container,klass_5_5);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 5 ){
+                    ftrans.replace(R.id.container,klass_5_6);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 6 ){
+                    ftrans.replace(R.id.container,klass_5_7);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 7 ){
+                    ftrans.replace(R.id.container,klass_5_8);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 8 ){
+                    ftrans.replace(R.id.container,klass_5_9);
+                    ftrans.commit();
+                }
+                // Arvutamine
+                if(groupPosition == KLASS_5 && childPosition == 9 ){
+                    ftrans.replace(R.id.container,klass_5_10);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 10 ){
+                    ftrans.replace(R.id.container,klass_5_11);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 11 ){
+                    ftrans.replace(R.id.container,klass_5_12);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 12 ){
+                    ftrans.replace(R.id.container,klass_5_13);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 13 ){
+                    ftrans.replace(R.id.container,klass_5_14);
+                    ftrans.commit();
+                }
+                // Mõõtühikud
+                if(groupPosition == KLASS_5 && childPosition == 14 ){
+                    ftrans.replace(R.id.container,klass_5_15);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 15 ){
+                    ftrans.replace(R.id.container,klass_5_16);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 16 ){
+                    ftrans.replace(R.id.container,klass_5_17);
+                    ftrans.commit();
+                }
+                // Andmed ja diagrammid
+                if(groupPosition == KLASS_5 && childPosition == 17 ){
+                    ftrans.replace(R.id.container,klass_5_18);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 18 ){
+                    ftrans.replace(R.id.container,klass_5_19);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 19 ){
+                    ftrans.replace(R.id.container,klass_5_20);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 20 ){
+                    ftrans.replace(R.id.container,klass_5_21);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 21 ){
+                    ftrans.replace(R.id.container,klass_5_22);
+                    ftrans.commit();
+                }
+                // Algebra ja funktsioonid
+                if(groupPosition == KLASS_5 && childPosition == 22 ){
+                    ftrans.replace(R.id.container,klass_5_23);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 23 ){
+                    ftrans.replace(R.id.container,klass_5_24);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 24 ){
+                    ftrans.replace(R.id.container,klass_5_25);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 25 ){
+                    ftrans.replace(R.id.container,klass_5_26);
+                    ftrans.commit();
+                }
+                // Geomeetria
+                if(groupPosition == KLASS_5 && childPosition == 26 ){
+                    ftrans.replace(R.id.container,klass_5_27);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 27 ){
+                    ftrans.replace(R.id.container,klass_5_28);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 28 ){
+                    ftrans.replace(R.id.container,klass_5_29);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 29 ){
+                    ftrans.replace(R.id.container,klass_5_30);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 30 ){
+                    ftrans.replace(R.id.container,klass_5_31);
+                    ftrans.commit();
+                }
+                if(groupPosition == KLASS_5 && childPosition == 31 ){
+                    ftrans.replace(R.id.container,klass_5_32);
+                    ftrans.commit();
+                }
                 // Ruutvõrrandi kalkulaator
                 if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_RUUT_LAH){
                     ftrans.replace(R.id.container,quad_calc);
@@ -641,9 +840,38 @@ public class MainActivity extends AppCompatActivity
         klass_4.add("Ümbermõõt ja pindala");
 
         List<String> klass_5 = new ArrayList<String>();
-        klass_5.add("Submenu");
-        klass_5.add("Submenu");
-        klass_5.add("Submenu");
+        klass_5.add("Naturaalarvud");
+        klass_5.add("Arvu klassid");
+        klass_5.add("Ümardamine");
+        klass_5.add("Jaguvuse tunnused");
+        klass_5.add("Algarvud");
+        klass_5.add("Vähim ühiskordne");
+        klass_5.add("Suurim ühistegur");
+        klass_5.add("Rooma numbrid");
+        klass_5.add("Murdarv");
+        klass_5.add("Arvu ruut ja kuup");
+        klass_5.add("Murdude liitmine, lahutamine");
+        klass_5.add("Murdude korrutamine");
+        klass_5.add("Murdude jagamine");
+        klass_5.add("Tehete järjekord");
+        klass_5.add("Pindalaühikud");
+        klass_5.add("Ruumalaühikud");
+        klass_5.add("Plaanimõõt");
+        klass_5.add("Sagedus, sagedustabel");
+        klass_5.add("Mood");
+        klass_5.add("Skaala");
+        klass_5.add("Aritmeetiline keskmine");
+        klass_5.add("Diagrammid");
+        klass_5.add("Arvavaldis, tähtavaldis");
+        klass_5.add("Valem");
+        klass_5.add("Võrrand");
+        klass_5.add("Arvkiir");
+        klass_5.add("Punkt, tasand");
+        klass_5.add("Jooned");
+        klass_5.add("Nurk");
+        klass_5.add("Sirgete omadused");
+        klass_5.add("Risttahukas");
+        klass_5.add("Kuup");
 
         List<String> klass_6 = new ArrayList<String>();
         klass_6.add("Submenu");
