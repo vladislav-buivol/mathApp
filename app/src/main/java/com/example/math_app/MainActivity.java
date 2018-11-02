@@ -25,6 +25,17 @@ import android.widget.ExpandableListView;
 
 import android.widget.Toast;
 
+import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_1;
+import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_10;
+import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_11;
+import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_2;
+import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_3;
+import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_4;
+import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_5;
+import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_6;
+import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_7;
+import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_8;
+import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_9;
 import com.example.math_app.fragments.klass_6.Fragment_Klass_6_1;
 import com.example.math_app.fragments.klass_6.Fragment_Klass_6_10;
 import com.example.math_app.fragments.klass_6.Fragment_Klass_6_11;
@@ -428,6 +439,17 @@ public class MainActivity extends AppCompatActivity
     Fragment_Klass_9_16 klass_9_16 = new Fragment_Klass_9_16();
     Fragment_Klass_9_17 klass_9_17 = new Fragment_Klass_9_17();
     Fragment_Klass_9_18 klass_9_18 = new Fragment_Klass_9_18();
+    Fragment_Gymnaasium_1 gymnaasium_1 = new Fragment_Gymnaasium_1();
+    Fragment_Gymnaasium_2 gymnaasium_2 = new Fragment_Gymnaasium_2();
+    Fragment_Gymnaasium_3 gymnaasium_3 = new Fragment_Gymnaasium_3();
+    Fragment_Gymnaasium_4 gymnaasium_4 = new Fragment_Gymnaasium_4();
+    Fragment_Gymnaasium_5 gymnaasium_5 = new Fragment_Gymnaasium_5();
+    Fragment_Gymnaasium_6 gymnaasium_6 = new Fragment_Gymnaasium_6();
+    Fragment_Gymnaasium_7 gymnaasium_7 = new Fragment_Gymnaasium_7();
+    Fragment_Gymnaasium_8 gymnaasium_8 = new Fragment_Gymnaasium_8();
+    Fragment_Gymnaasium_9 gymnaasium_9 = new Fragment_Gymnaasium_9();
+    Fragment_Gymnaasium_10 gymnaasium_10 = new Fragment_Gymnaasium_10();
+    Fragment_Gymnaasium_11 gymnaasium_11 = new Fragment_Gymnaasium_11();
     //Icons, use as you want
     /*static int[] icon = { R.drawable.ico1, R.drawable.ico1,
             R.drawable.ico1, R.drawable.ico1,
@@ -1290,6 +1312,63 @@ public class MainActivity extends AppCompatActivity
                     ftrans.replace(R.id.container,klass_9_18);
                     ftrans.commit();
                 }
+                // Gümnaasium
+                // Avaldised ja arvhulgad
+                if(groupPosition == GYMNAASIUM && childPosition == 0 ){
+                    ftrans.replace(R.id.container,gymnaasium_1);
+                    ftrans.commit();
+                }
+                // Võrrandid ja võrrandisüsteemid
+                if(groupPosition == GYMNAASIUM && childPosition == 1 ){
+                    ftrans.replace(R.id.container,gymnaasium_2);
+                    ftrans.commit();
+                }
+                // Trigonomeetria I ja võrratused
+                if(groupPosition == GYMNAASIUM && childPosition == 2 ){
+                    ftrans.replace(R.id.container,gymnaasium_3);
+                    ftrans.commit();
+                }
+                // Trigonomeetria II
+                if(groupPosition == GYMNAASIUM && childPosition == 3 ){
+                    ftrans.replace(R.id.container,gymnaasium_4);
+                    ftrans.commit();
+                }
+                // Vektor tasandil
+                if(groupPosition == GYMNAASIUM && childPosition == 4 ){
+                    ftrans.replace(R.id.container,gymnaasium_5);
+                    ftrans.commit();
+                }
+                // Tõenäosus ja statistika
+                if(groupPosition == GYMNAASIUM && childPosition == 5 ){
+                    ftrans.replace(R.id.container,gymnaasium_6);
+                    ftrans.commit();
+                }
+                // Funktsioonid I ja jadad
+                if(groupPosition == GYMNAASIUM && childPosition == 6 ){
+                    ftrans.replace(R.id.container,gymnaasium_7);
+                    ftrans.commit();
+                }
+                // Funktsioonid II
+                if(groupPosition == GYMNAASIUM && childPosition == 7 ){
+                    ftrans.replace(R.id.container,gymnaasium_8);
+                    ftrans.commit();
+                }
+                // Funktsiooni piirväärtus ja tuletis
+                if(groupPosition == GYMNAASIUM && childPosition == 8 ){
+                    ftrans.replace(R.id.container,gymnaasium_9);
+                    ftrans.commit();
+                }
+                // Integraal
+                if(groupPosition == GYMNAASIUM && childPosition == 9 ){
+                    ftrans.replace(R.id.container,gymnaasium_10);
+                    ftrans.commit();
+                }
+                // Geomeetria
+                if(groupPosition == GYMNAASIUM && childPosition == 10 ){
+                    ftrans.replace(R.id.container,gymnaasium_11);
+                    ftrans.commit();
+                }
+                // Kalkulaatorid
                 // Ruutvõrrandi kalkulaator
                 if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_RUUT_LAH){
                     ftrans.replace(R.id.container,quad_calc);
@@ -1543,8 +1622,17 @@ public class MainActivity extends AppCompatActivity
         klass_9.add("Kera");
 
         List<String> gymnasium = new ArrayList<String>();
-        gymnasium.add("Submenu");
-        gymnasium.add("Submenu");
+        gymnasium.add("Avaldised ja arvhulgad");
+        gymnasium.add("Võrrandid ja võrrandisüsteemid");
+        gymnasium.add("Trigonomeetria I ja võrratused");
+        gymnasium.add("Trigonomeetria II");
+        gymnasium.add("Vektor tasandil");
+        gymnasium.add("Tõenäosus ja statistika");
+        gymnasium.add("Funktsioonid I ja jadad");
+        gymnasium.add("Funktsioonid II");
+        gymnasium.add("Funktsiooni piirväärtus ja tuletis");
+        gymnasium.add("Integraal");
+        gymnasium.add("Geomeetria");
 
         List<String> lemmikud = new ArrayList<String>();
         lemmikud.add("Minu lemmikud");
