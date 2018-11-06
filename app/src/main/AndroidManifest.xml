@@ -13,7 +13,9 @@
         <activity
             android:name=".MainActivity"
             android:label="Matemaatika minileksikon"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
