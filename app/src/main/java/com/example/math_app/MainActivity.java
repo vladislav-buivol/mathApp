@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -23,9 +22,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ExpandableListView;
-
 import android.widget.Toast;
 
+import com.example.math_app.fragments.calculators.Fragment_Interest_Calculator;
+import com.example.math_app.fragments.calculators.Fragment_quad_calc;
 import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_1;
 import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_10;
 import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_11;
@@ -37,40 +37,15 @@ import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_6;
 import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_7;
 import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_8;
 import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_9;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_1;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_10;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_11;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_12;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_13;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_14;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_15;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_16;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_17;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_18;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_19;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_2;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_20;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_21;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_22;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_23;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_24;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_3;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_4;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_5;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_6;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_7;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_8;
-import com.example.math_app.fragments.klass_6.Fragment_Klass_6_9;
-import com.example.math_app.fragments.calculators.Fragment_Interest_Calculator;
 import com.example.math_app.fragments.klass_1.Fragment_Klass_1_1;
-import com.example.math_app.fragments.klass_1.Fragment_Klass_1_4;
-import com.example.math_app.fragments.klass_1.Fragment_Klass_1_6;
-import com.example.math_app.fragments.klass_1.Fragment_Klass_1_9;
-import com.example.math_app.fragments.klass_1.Fragment_Klass_1_8;
 import com.example.math_app.fragments.klass_1.Fragment_Klass_1_2;
-import com.example.math_app.fragments.klass_1.Fragment_Klass_1_5;
-import com.example.math_app.fragments.klass_1.Fragment_Klass_1_7;
 import com.example.math_app.fragments.klass_1.Fragment_Klass_1_3;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_4;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_5;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_6;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_7;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_8;
+import com.example.math_app.fragments.klass_1.Fragment_Klass_1_9;
 import com.example.math_app.fragments.klass_2.Fragment_Klass_2_1;
 import com.example.math_app.fragments.klass_2.Fragment_Klass_2_10;
 import com.example.math_app.fragments.klass_2.Fragment_Klass_2_11;
@@ -155,7 +130,30 @@ import com.example.math_app.fragments.klass_5.Fragment_Klass_5_6;
 import com.example.math_app.fragments.klass_5.Fragment_Klass_5_7;
 import com.example.math_app.fragments.klass_5.Fragment_Klass_5_8;
 import com.example.math_app.fragments.klass_5.Fragment_Klass_5_9;
-import com.example.math_app.fragments.calculators.Fragment_quad_calc;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_1;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_10;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_11;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_12;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_13;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_14;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_15;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_16;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_17;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_18;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_19;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_2;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_20;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_21;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_22;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_23;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_24;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_3;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_4;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_5;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_6;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_7;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_8;
+import com.example.math_app.fragments.klass_6.Fragment_Klass_6_9;
 import com.example.math_app.fragments.klass_7.Fragment_Klass_7_1;
 import com.example.math_app.fragments.klass_7.Fragment_Klass_7_10;
 import com.example.math_app.fragments.klass_7.Fragment_Klass_7_11;
@@ -223,7 +221,6 @@ import com.example.math_app.fragments.klass_9.Fragment_Klass_9_6;
 import com.example.math_app.fragments.klass_9.Fragment_Klass_9_7;
 import com.example.math_app.fragments.klass_9.Fragment_Klass_9_8;
 import com.example.math_app.fragments.klass_9.Fragment_Klass_9_9;
-
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -1709,7 +1706,7 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_search) {
-            new SimpleSearchDialogCompat(MainActivity.this, "Search...", "Sisestage teemat,",
+            new SimpleSearchDialogCompat(MainActivity.this, "Otsi...", "Sisestage märksõna",
                     null, initData(), new SearchResultListener<Searchable>() {
                 @Override
                 public void onSelected(BaseSearchDialogCompat baseSearchDialogCompat, Searchable searchable, int i) {
