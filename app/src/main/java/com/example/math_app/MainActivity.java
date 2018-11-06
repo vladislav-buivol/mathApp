@@ -1,7 +1,7 @@
 package com.example.math_app;
 //https://stackoverflow.com/questions/49990933/configuration-on-demand-is-not-supported-by-the-current-version-of-the-android-g
 //https://github.com/PrivacyApps/html-textview
-
+//https://github.com/mirrajabi/search-dialog
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -226,7 +226,13 @@ import com.example.math_app.fragments.klass_9.Fragment_Klass_9_9;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+
+import ir.mirrajabi.searchdialog.SimpleSearchDialogCompat;
+import ir.mirrajabi.searchdialog.core.BaseSearchDialogCompat;
+import ir.mirrajabi.searchdialog.core.SearchResultListener;
+import ir.mirrajabi.searchdialog.core.Searchable;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -254,6 +260,9 @@ public class MainActivity extends AppCompatActivity
     HashMap<String, List<String>> listDataChild;
     Fragment_quad_calc quad_calc = new Fragment_quad_calc();
     Fragment_Interest_Calculator interest_calculator = new Fragment_Interest_Calculator();
+
+    private ArrayList<String> headers = new ArrayList<String>();
+
 
     Fragment_Klass_1_1 klass_1_1 = new Fragment_Klass_1_1();
     Fragment_Klass_1_2 klass_1_2 = new Fragment_Klass_1_2();
@@ -1695,17 +1704,46 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        if (id == R.id.action_search) {
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+            new SimpleSearchDialogCompat(MainActivity.this, "Search...", "Sisestage teemat,",
+                    null, initData(), new SearchResultListener<Searchable>() {
+                @Override
+                public void onSelected(BaseSearchDialogCompat baseSearchDialogCompat, Searchable searchable, int i) {
+                    Toast.makeText(MainActivity.this,""+searchable.getTitle(),Toast.LENGTH_SHORT).show();
+                    baseSearchDialogCompat.dismiss();
+
+                    System.out.println("LOOOOOOOOOOOOOOOOG " + searchable.getTitle());
+                    FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
+
+                    if(searchable.getTitle().equals("Ajaühikud")){
+                        ftrans.replace(R.id.container, klass_3_7);
+                        ftrans.commit();
+                    }
+                    else if(searchable.getTitle().equals("Algebraline murd")){
+                        ftrans.replace(R.id.container, klass_9_4);
+                        ftrans.commit();
+                    }
+                }
+            }).show();
             return true;
-        }
-        if(id == R.id.action_ruutLahendaja){
-            /*Intent i = new Intent(this,Quadratic_calculator_Activity.class);
-            this.startActivity(i);*/
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private ArrayList<SearchMode> initData() {
+
+        String[] headers = {"Ajaühikud", "Algebraline murd", "Aritmeetiline keskmine", "Arvavaldis, tähtavaldis", "Arvkiir", "Arvu klassid", "Arvu ruut ja kuup", "Arvud 1 - 1000", "Arvud vs numbrid", "Arvude 0 - 10 ruudud:", "Arvude ehitus", "Arvude jaguvus", "Arvude ruudud, juured", "Arvude võrdlemine", "Arvuhulgad", "Arvust osa ja osa järgi arvu leidmine", "Arvutamine arvudega 0 – 100", "Asendusvõte", "Astendamise reeglid", "Astmed", "Avaldised ja arvhulgad", "Funktsiooni piirväärtus ja tuletis", "Funktsioonid I ja jadad", "Geomeetria", "Geomeetrilised kujundid", "Hulknurk", "Jagamistehe", "Jaguvuse tunnused", "Kaalutud keskmine", "Kasvamine, kahanemine", "Kera", "Keskmine hälve", "Kolmnurga elemendid", "Kolmnurk", "Kolmnurkade omadused", "Kolmnurkne püstprisma", "Koordinaadid", "Korda suurem, korda vähem", "Korrutustabel", "Lahutamistehe", "Lihtsustamine", "Liitmine, lahutamine, korrutamine, jagamine", "Lõik", "Mahuühikud", "Mood", "Murdarvuline lineaarvõrrand", "Nelinurgad", "Nelinurksed püstprismad", "Nurk", "Paralleelsed sirged", "Pikkusühikud", "Pindalaühikud", "Plaanimõõt", "Protsendi leidmine", "Punkt, tasand", "Pythagorase teoreem", "Pöördarv", "Püstprisma", "Raskusühikud", "Ring ja ringjoon", "Risttahukas", "Romb", "Rooma numbrid", "Ruumilised kujundid", "Ruutkolmliige", "Ruutude vahe valem", "Ruutvõrrandi kalkulaator", "Ruutvõrrandi lahendamine", "Rööpkülik", "Sagedus, sagedustabel", "Sektor", "Siinus, koosinus, tangens", "Silinder", "Sirge ja sirglõik", "Sirge, sirglõik, murdjoon", "Standardkuju", "Suhe, võrdeline seos", "Tabel: arvude lahutamine kahekümne piires", "Tabel: täiskümnete lahutamine saja piires", "Trapets", "Trigonomeetria I ja võrratused", "Tõenäosus", "Tõenäosusteooria", "Vastandarv", "Vektor tasandil", "Vähim ühiskordne", "Võrdeline seos", "Võrdelised lõigud", "Võrdus ja võrratus", "Võrrand", "Võrrandi lihtsustamine", "Ühelised, kümnelised", "Üleminekuga liitmine ja lahutamine"};
+        ArrayList<SearchMode> items = new ArrayList<>();
+        for(String string : headers){
+                items.add(new SearchMode(string));
+        }
+        //System.out.println("LEEEEEEEEEEEEEEENGTH");
+        //System.out.println(headers.length);
+        //System.out.println(items.size());
+        return items;
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
