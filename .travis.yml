@@ -33,6 +33,7 @@ android:
   - google-gdk-license-.+
 script:
 - android list targets
+- ./gradlew connectedAndroidTest
 #before_install:
   #- cd java
 #- openssl aes-256-cbc -K $encrypted_12e97ba04df2_key -iv $encrypted_12e97ba04df2_iv
