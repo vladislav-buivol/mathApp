@@ -38,10 +38,7 @@ public class Tests {
                 .getSupportFragmentManager().beginTransaction();
     }
 
-    @Test
-    public void testFabView() {
-        onView(withId(R.id.fab)).perform().check(matches(isDisplayed()));
-    }
+
     @Test
     public void navigationDrawerTest()  {
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
@@ -75,11 +72,6 @@ public class Tests {
     @Test
     public void favoriteTest() {
         onView(withId(R.id.action_favorite)).perform(click());
-    }
-
-    @Test
-    public void messageeTest() {
-        onView(withId(R.id.fab)).perform(click());
     }
 
 
