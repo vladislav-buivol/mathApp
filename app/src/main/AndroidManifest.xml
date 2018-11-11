@@ -23,10 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Quadratic_calculator_Activity"></activity>
-        <activity
-            android:name=".Interest_Calculator"
-            android:label="Intresside arvutaja"></activity>
     </application>
 
 </manifest>

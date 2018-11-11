@@ -6,22 +6,42 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    tools:showIn="@layout/app_bar_main"
+    tools:showIn="@layout/activity_main"
     android:id="@+id/container">
     <WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+        <LinearLayout
 
-    <TextView
-        android:title ="@string/empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical">
 
-</FrameLayout>
+
+            <ImageView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/t1_round"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_gravity="top"
+                android:contentDescription=""/>
+
+            <TextView
+                android:title ="Hello World!"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center_vertical|right"
+                android:text="@string/tervitus"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 

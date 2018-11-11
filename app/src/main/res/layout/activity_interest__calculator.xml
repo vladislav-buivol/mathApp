@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Interest_Calculator">
 
+    <include layout="@layout/white" />
+
     <TextView
         android:id="@+id/lihtintress"
         android:layout_width="319dp"

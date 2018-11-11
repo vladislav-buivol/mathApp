@@ -8,6 +8,8 @@
     tools:context=".Quadratic_calculator_Activity"
     tools:layout_editor_absoluteY="50dp">
 
+    <include layout="@layout/white" />
+
     <TextView
         android:id="@+id/anwserX"
         android:layout_width="231dp"

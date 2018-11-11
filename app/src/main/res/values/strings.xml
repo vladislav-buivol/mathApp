@@ -13,5 +13,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="empty">empty</string>
     <string name="name">Matemaatika minileksikon</string>
+    <string name="tervitus">Programm sisaldab põhikooli ja gümnaasiumi matemaatika õppekavas nõutud materjale.
+        Antud on kõik peamised definitsioonid, mõisted ning kirjeldused.
+        Samuti leiate hulgaliselt näiteid, jooniseid ja lisamaterjale.
+        Materjalid on jaotatud klasside ja kursuste kaupa kategooriatesse.
+        Lisaks sellele saab vajalikud peatükid kiiresti üles leida otsingufunktsionaalsust kasutades.</string>
 
 </resources>
