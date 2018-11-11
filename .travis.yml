@@ -33,7 +33,8 @@ android:
   - google-gdk-license-.+
 script:
 - android list targets
-#before_install:
+before_install:
+  - cd java
 #- openssl aes-256-cbc -K $encrypted_12e97ba04df2_key -iv $encrypted_12e97ba04df2_iv
  # -in android.jks.enc -out android.jks -d
 
