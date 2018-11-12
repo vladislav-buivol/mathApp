@@ -1,30 +1,32 @@
 [![Build Status](https://travis-ci.com/vladbbb/mathApp.svg?branch=master)](https://travis-ci.com/vladbbb/mathApp)
 
-## 15.10.2018 Release Notes (Iteration 2)
-This document gives an overview of the product state as of 15.10.2018 (end of 2nd iteration).
+## 12.11.2018 Release Notes (Iteration 3)
+This document gives an overview of the product state as of 12.11.2018 (end of 3rd iteration).
 ### About This Release
-In this release, calculators are implemented and tested (functional requirements #5 and #6), and left sidebar tree view menu is constantly available through menu button (functional requirements #3 and #9).
-### Upgrades
+In this release, the main implemented functionality includes search system for definitions we added (functional requirements 7 and 8) and way of sending bug reports (functional requirement 12). Sending bugs as GitHub issues via API is still on development. Favorites system is postponed due bigger priorities discussed with the client (see [notes](https://docs.google.com/document/d/1Wpniv_zZG24TU9w6vMISmeK86o5STdCChBJv2FH7XPU/edit))
+### Fixed Bugs and Limitations
+* Opening calculators keeps the menu bar instead of opening in separate view
+* Application name is corrected from math_app to Matemaatika Minileksikon
+* Redundant right-side menu is removed
+### Upgrades and New Features
 The following upgrades are present in this release:
-* Previous menu is replaced with expandableListView menu
-* Menu option remains visible while clicking on (currently blank) definition names
-* Opening menu does not affect current state of application (current page remains opened while clicking on menu button)
-### New Features
-The following features appear in this release:
-* Quadratic Calculator
-* Interest Calculator
-### Known Bugs & Limitations
-* APK installation might not work properly on devices with Android version < 6.0 (tested on tablets with version 4.0.3 and 5.0.1)
-* Some devices might have layout problems when using calculators in landscape mode (properly tested only with Nexus and Pixel devices)
-* Calculators open in new view instead of continuing being part of the menu (back button brings back to main screen)
-* Upper right-side menu is redundant (has options "Settings" and "Ruutvõrrandi Lahendaja", but they are not clickable)
-### Next Release
-For the next release (12.11.2018) we have planned the following upgrades:
-* Opening calculators will keep the menu bar instead of opening in separate view
-* Improved user interface design
+* Menu style and UI are improved, color-scheme is gray and orange
+* Expandable menu is tested, each category has only relevant fragments
+* App has relevant logo and icon
+* Main introductions screen is present
 
-For the next release (12.11.2018) we have planned the following features:
-* Definitions are added to corresponding menu categories and sub-categories ("Hello World!" text is currently displayed instead)
-* Search field (TF-IDF and cosine similarity algorithms)
-* Favorites system: add definitions to folder "Lemmikud"
-* Send bug reports (via GitHub API)
+The following new features are present in this release:
+* All definitions are converted from lyx and added into application
+* Search system is present
+* Bug report template
+### Known Bugs & Limitations
+* APK installation might not work properly on devices with Android version < 7.0 (tested on tablets with version 4.0.3, 4.2.2 and 5.0.1)
+* Occasional crashes on older devices
+* Although bug report template is generated for selected definition, sending it to GitHub via API does not work yet
+* Search algorithm sometimes returns reduntant results as it returns the closest matches
+* Title Matemaatika Minileksikon is not fully visible on smaller devices
+### Next Release
+For the next release (10.12.2018) the main planned features are:
+* Bug reports can be sent via GitHub AP
+* Favorites system
+* Improved search algorithm (TF-IDF)
