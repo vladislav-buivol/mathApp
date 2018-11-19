@@ -1,6 +1,5 @@
 package com.example.math_app.fragments;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,10 +7,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.math_app.R;
+
+import org.json.JSONObject;
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,6 +42,7 @@ public class Fragment_BugReport extends Fragment {
     TextView defText;
     String definitsioon;
     EditText selgitus;
+    Button button;
 
     public Fragment_BugReport() {
         // Required empty public constructor
@@ -84,6 +91,15 @@ public class Fragment_BugReport extends Fragment {
 
         selgitus = getView().findViewById(R.id.selgitus);
         selgitus.setText("");
+
+        button = getView().findViewById(R.id.sendbutton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String body = selgitus.getText().toString();
+                sendPost(definitsioon, body);
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -123,5 +139,43 @@ public class Fragment_BugReport extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+   public void sendPost(final String title, final String body) {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL("https://api.github.com/repos/Teemant/minilex/issues");
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                    conn.setRequestMethod("POST");
+                    conn.setRequestProperty("Accept","application/vnd.github.symmetra-preview+json");
+                    conn.setRequestProperty ("Authorization", "Basic "+ "bWlubGVrc2lrb246bWluaWxla3MxMjM=");
+                    conn.setDoOutput(true);
+                    conn.setDoInput(true);
+                    JSONObject jsonParam = new JSONObject();
+
+                    jsonParam.put("title", title);
+                    jsonParam.put("body", body);
+
+                    Log.i("****JSON", jsonParam.toString());
+                    DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+                    os.writeBytes(jsonParam.toString());
+
+                    os.flush();
+                    os.close();
+
+                    Log.i("****STATUS", String.valueOf(conn.getResponseCode()));
+                    Log.i("****MSG" , conn.getResponseMessage());
+
+                    conn.disconnect();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
     }
 }
