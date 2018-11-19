@@ -21,7 +21,7 @@
             <ImageView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:src="@drawable/t1_round"
+                android:src="@drawable/ic_t1_2"
                 android:layout_margin="@dimen/activity_horizontal_margin"
                 android:layout_gravity="top"
                 android:contentDescription=""/>
