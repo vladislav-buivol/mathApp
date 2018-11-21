@@ -1722,13 +1722,13 @@ public class MainActivity extends AppCompatActivity
         } if(id == R.id.action_favorite){
             FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
             ftrans.replace(R.id.container,bugReport);
+            //ftrans.addToBackStack("teretere");
 
             if(saveName==null){
             } else {
                 Bundle bundle = new Bundle();
                 bundle.putString("definitsioon", saveName);
                 bugReport.setArguments(bundle);
-
                 ftrans.commit();
             }
 

@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 
 /**
@@ -43,6 +44,7 @@ public class Fragment_BugReport extends Fragment {
     String definitsioon;
     EditText selgitus;
     Button button;
+    String status;
 
     public Fragment_BugReport() {
         // Required empty public constructor
@@ -149,27 +151,40 @@ public class Fragment_BugReport extends Fragment {
                     URL url = new URL("https://api.github.com/repos/Teemant/minilex/issues");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-                    conn.setRequestMethod("POST");
+                    conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
                     conn.setRequestProperty("Accept","application/vnd.github.symmetra-preview+json");
                     conn.setRequestProperty ("Authorization", "Basic "+ "bWlubGVrc2lrb246bWluaWxla3MxMjM=");
+
+                    conn.setRequestMethod("POST");
+
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
-                    JSONObject jsonParam = new JSONObject();
-
+                    /*JSONObject jsonParam = new JSONObject();
                     jsonParam.put("title", title);
-                    jsonParam.put("body", body);
+                    jsonParam.put("body", body);Log.i("****JSON", jsonParam.toString());*/
 
-                    Log.i("****JSON", jsonParam.toString());
+                    //os.writeBytes(jsonParam.toString());
+                    //os.writeBytes(URLEncoder.encode(jsonParam.toString(), "UTF-8"));
+
                     DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-                    os.writeBytes(jsonParam.toString());
+
+                    String json = "{\"title\":" + "\"" + title + "\",\"body\":\"" + body + "\"}";
+                    os.write(json.getBytes("UTF-8"));
 
                     os.flush();
                     os.close();
 
-                    Log.i("****STATUS", String.valueOf(conn.getResponseCode()));
+                    status = String.valueOf(conn.getResponseCode());
+                    Log.i("****STATUS", status);
                     Log.i("****MSG" , conn.getResponseMessage());
 
+
                     conn.disconnect();
+
+                    if(status.equals("201")){
+                        Log.i("****status" , "jõuab");
+                        //getFragmentManager().popBackStackImmediate();
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
