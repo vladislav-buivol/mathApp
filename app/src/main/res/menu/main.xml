@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <!-- <item
+    <!--<item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
-        app:showAsAction="never" />
-         -->
+        app:showAsAction="never" />-->
     <item
         android:id="@+id/action_search"
-        android:orderInCategory="100"
         android:title="@string/action_search"
         app:showAsAction="always"
+        app:actionViewClass="android.widget.SearchView"
         android:icon="@android:drawable/ic_menu_search"
         />
-    <!-- <item
+    <!--<item
+        android:id="@+id/action_favorite"
+        android:icon="@drawable/baseline_info_orange_18dp"
+        android:title="action_favorite"
+        app:showAsAction="always" />-->
+    <!--<item
          android:id="@+id/action_ruutLahendaja"
          android:orderInCategory="100"
          android:title="Ruutvõrrandi Lahendaja"
-         app:showAsAction="never" />
-     -->
+         app:showAsAction="never" />-->
+
 </menu>

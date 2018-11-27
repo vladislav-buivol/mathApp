@@ -12,5 +12,5 @@
         android:textAlignment="textStart"
         android:layout_marginLeft="44dp"
         android:textSize="14sp"
-        android:id="@+id/submenu"/>
+        android:id=" @+id/submenu"/>
 </LinearLayout>

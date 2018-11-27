@@ -1,4 +1,5 @@
-package com.example.math_app;
+//need  implementation 'com.github.mirrajabi:search-dialog:1.2.3'
+/*package com.example.math_app;
 
 import ir.mirrajabi.searchdialog.core.Searchable;
 
@@ -19,3 +20,4 @@ public class SearchMode implements Searchable {
         return mTitle;
     }
 }
+*/

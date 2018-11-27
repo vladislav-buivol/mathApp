@@ -9,6 +9,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ExpandableListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.math_app.fragments.Fragment_BugReport;
@@ -226,10 +228,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
+/*
+//need  implementation 'com.github.mirrajabi:search-dialog:1.2.3'
 import ir.mirrajabi.searchdialog.SimpleSearchDialogCompat;
 import ir.mirrajabi.searchdialog.core.BaseSearchDialogCompat;
 import ir.mirrajabi.searchdialog.core.SearchResultListener;
 import ir.mirrajabi.searchdialog.core.Searchable;
+*/
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -1697,6 +1702,26 @@ public class MainActivity extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         getMenuInflater().inflate(R.menu.bug_report, menu);
+
+        MenuItem searcItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) searcItem.getActionView();
+
+        searchView.setOnQueryTextListener(  new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        System.out.println("onQueryTextSubmitonQueryTextSubmitonQueryTextSubmitonQueryTextSubmit");
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        System.out.println(newText+" onQueryTextChangeonQueryTextChangeonQueryTextChange");
+                        return false;
+                    }
+                }
+        );
+
+
         return true;
     }
 
@@ -1707,6 +1732,7 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_search) {
+            /*
             new SimpleSearchDialogCompat(MainActivity.this, "Otsi...", "Sisestage märksõna",
                     null, initData(), new SearchResultListener<Searchable>() {
                 @Override
@@ -1719,7 +1745,7 @@ public class MainActivity extends AppCompatActivity
                 }
             }).show();
             return true;
-        } if(id == R.id.action_favorite){
+        */} if(id == R.id.action_favorite){
             FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
             ftrans.replace(R.id.container,bugReport);
             //ftrans.addToBackStack("teretere");
@@ -1745,6 +1771,9 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    /*
+    //need  implementation 'com.github.mirrajabi:search-dialog:1.2.3'
+
     private ArrayList<SearchMode> initData() {
         ArrayList<String> tmp = new ArrayList<>();
         for(String el:headers){
@@ -1758,6 +1787,7 @@ public class MainActivity extends AppCompatActivity
 
         return items;
     }
+    */
 
 
     private HashMap<String,Fragment> createFragmenMap(){
