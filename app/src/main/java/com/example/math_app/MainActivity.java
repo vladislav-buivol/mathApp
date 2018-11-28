@@ -24,6 +24,7 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.math_app.fragments.Fragment_BugReport;
+import com.example.math_app.fragments.Fragment_MainScreen;
 import com.example.math_app.fragments.calculators.Fragment_Interest_Calculator;
 import com.example.math_app.fragments.calculators.Fragment_quad_calc;
 import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_1;
@@ -262,6 +263,8 @@ public class MainActivity extends AppCompatActivity
     Fragment_quad_calc quad_calc = new Fragment_quad_calc();
     Fragment_Interest_Calculator interest_calculator = new Fragment_Interest_Calculator();
 
+    Fragment_MainScreen mainScreen = new Fragment_MainScreen();
+
     Fragment_Klass_1_1 klass_1_1 = new Fragment_Klass_1_1();
     Fragment_Klass_1_2 klass_1_2 = new Fragment_Klass_1_2();
     Fragment_Klass_1_3 klass_1_3 = new Fragment_Klass_1_3();
@@ -491,6 +494,11 @@ public class MainActivity extends AppCompatActivity
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
+
+
+        FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
+        ftrans.replace(R.id.container, mainScreen);
+        ftrans.commit();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -1247,7 +1255,6 @@ public class MainActivity extends AppCompatActivity
                 // Arvud, arvutamine
                 if(groupPosition == KLASS_9 && childPosition == 0 ){
                     ftrans.replace(R.id.container,klass_9_1);
-                    ftrans.commit();
                 }
                 // Algebra ja funktsioonid
                 if(groupPosition == KLASS_9 && childPosition == 1 ){
@@ -1745,9 +1752,8 @@ public class MainActivity extends AppCompatActivity
             return true;
         */} if(id == R.id.action_favorite){
             FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
-            ftrans.replace(R.id.container,bugReport);
-            //ftrans.addToBackStack("teretere");
-
+            ftrans.replace(R.id.container,bugReport, "fragment1");
+            ftrans.addToBackStack("tag");
             if(saveName==null){
             } else {
                 Bundle bundle = new Bundle();
@@ -1760,6 +1766,7 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
 
     private void setFragment(String title) {
         FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();

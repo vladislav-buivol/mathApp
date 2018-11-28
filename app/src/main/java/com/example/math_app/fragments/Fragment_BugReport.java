@@ -1,23 +1,31 @@
 package com.example.math_app.fragments;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.math_app.MainActivity;
 import com.example.math_app.R;
+import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_10;
 
 import org.json.JSONObject;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import static android.widget.Toast.LENGTH_SHORT;
 
 
 /**
@@ -87,7 +95,7 @@ public class Fragment_BugReport extends Fragment {
         return inflater.inflate(R.layout.activity_bug_report, container, false);
     }
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState){
+    public void onViewCreated(final View view, final Bundle savedInstanceState){
         defText = getView().findViewById(R.id.definitsioon);
         defText.setText(definitsioon);
 
@@ -99,7 +107,8 @@ public class Fragment_BugReport extends Fragment {
             @Override
             public void onClick(View v) {
                 String body = selgitus.getText().toString();
-                sendPost(definitsioon, body);
+                sendPost(definitsioon, body.trim());
+                Toast.makeText(getActivity(),"Viga Saadetud",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -159,12 +168,6 @@ public class Fragment_BugReport extends Fragment {
 
                     conn.setDoOutput(true);
                     conn.setDoInput(true);
-                    /*JSONObject jsonParam = new JSONObject();
-                    jsonParam.put("title", title);
-                    jsonParam.put("body", body);Log.i("****JSON", jsonParam.toString());*/
-
-                    //os.writeBytes(jsonParam.toString());
-                    //os.writeBytes(URLEncoder.encode(jsonParam.toString(), "UTF-8"));
 
                     DataOutputStream os = new DataOutputStream(conn.getOutputStream());
 
@@ -178,12 +181,14 @@ public class Fragment_BugReport extends Fragment {
                     Log.i("****STATUS", status);
                     Log.i("****MSG" , conn.getResponseMessage());
 
-
                     conn.disconnect();
-
                     if(status.equals("201")){
+
                         Log.i("****status" , "jõuab");
-                        //getFragmentManager().popBackStackImmediate();
+                        Fragment_MainScreen mainScreen = new Fragment_MainScreen();
+                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                        transaction.replace(R.id.container, mainScreen);
+                        transaction.commit();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
