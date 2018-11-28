@@ -9,7 +9,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -224,7 +223,6 @@ import com.example.math_app.fragments.klass_9.Fragment_Klass_9_8;
 import com.example.math_app.fragments.klass_9.Fragment_Klass_9_9;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -1593,7 +1591,7 @@ public class MainActivity extends AppCompatActivity
         klass_8.add("Kümne astmed");
         klass_8.add("Standardkuju");
         klass_8.add("Ruutjuur");
-        klass_8.add("Arvu ruudud, juured");
+        klass_8.add("Arvude ruudud, juured");
         klass_8.add("Üksliige, hulkliige");
         klass_8.add("Ruutude vahe valem");
         klass_8.add("Kaksliikme ruut");
