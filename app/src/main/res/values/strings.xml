@@ -18,5 +18,9 @@
         Samuti leiate hulgaliselt näiteid, jooniseid ja lisamaterjale.
         Materjalid on jaotatud klasside ja kursuste kaupa kategooriatesse.
         Lisaks sellele saab vajalikud peatükid kiiresti üles leida otsingufunktsionaalsust kasutades.</string>
+    <string name="opensource">Matemaatika minileksikoni lähtekood on nüüd avalik!</string>
+    <string name="avalik">Programmi lähtekood on avaldatud GNU GPL litsentsi alusel ja materjalid on avaldatud Creative
+        Commons Attribution-ShareAlike 4.0 International License alusel. Tarkvara kasutajatel on
+        võimalus aidata kaasa arendustegevuses ja õppematerjalide kaasajastamisel ja täiendamisel.</string>
 
 </resources>
