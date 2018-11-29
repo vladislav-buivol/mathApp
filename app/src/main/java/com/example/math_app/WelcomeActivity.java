@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.math_app.fragments.MyPagerAdapter;
 
@@ -65,6 +66,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 if (currentPage < layouts.length) {
                     viewPager.setCurrentItem(currentPage);
                 } else {
+                    Toast.makeText(WelcomeActivity.this, "Please wait...", Toast.LENGTH_LONG).show();
                     startMainActivity();
                 }
             }
@@ -73,7 +75,7 @@ public class WelcomeActivity extends AppCompatActivity {
         layouts = new int[]{R.layout.slider1};
         pagerAdapter = new MyPagerAdapter(layouts, getApplicationContext());
         viewPager.setAdapter(pagerAdapter);
-
+/*
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
@@ -98,6 +100,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
         setDotStatus(0);
+        */
     }
 
     private boolean isFirstTimeStartApp() {
@@ -111,7 +114,7 @@ public class WelcomeActivity extends AppCompatActivity {
         editor.putBoolean("FirstTimeStartFlag", stt);
         editor.commit();
     }
-
+/*
     private void setDotStatus(int page) {
         layoutDot.removeAllViews();
         dotstv = new TextView[layouts.length];
@@ -126,7 +129,7 @@ public class WelcomeActivity extends AppCompatActivity {
         if (dotstv.length>0) {
             dotstv[page].setTextColor(Color.parseColor("#E0E0E0"));
         }
-    }
+    }*/
     private void startMainActivity() {
         setFirstTimeStartStatus(true);
         startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
