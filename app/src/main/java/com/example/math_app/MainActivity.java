@@ -369,7 +369,7 @@ public class MainActivity extends AppCompatActivity
 
                 // Kalkulaatorid
                 // Ruutvõrrandi kalkulaator
-                else if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_RUUT_LAH){
+                else if(groupPosition==KALKULAATORID+param && childPosition==SUB_KALKULAATORID_RUUT_LAH+param){
                     ftrans.replace(R.id.container,quad_calc);
                     ftrans.commit();
                 }
