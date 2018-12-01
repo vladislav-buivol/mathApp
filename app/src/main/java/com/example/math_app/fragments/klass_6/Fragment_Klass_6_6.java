@@ -101,7 +101,7 @@ public class Fragment_Klass_6_6 extends Fragment {
         //webView.loadUrl("http://www.google.com");
         webView.setWebViewClient(new WebViewClient());
 
-        webView.loadUrl("file:///android_asset/6_klass_materjalid/murrud/6_klass_6/6_klass_6.html");
+        webView.loadUrl("file:///android_asset/6_klass_materjalid/6_klass_6.html");
 
     }
 
