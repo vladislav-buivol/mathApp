@@ -374,7 +374,7 @@ public class MainActivity extends AppCompatActivity
                     ftrans.commit();
                 }
                 // Intresside kalkulaator
-                else if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_INTRESSI_LAH){
+                else if(groupPosition==KALKULAATORID+param && childPosition==SUB_KALKULAATORID_INTRESSI_LAH+param){
                     ftrans.replace(R.id.container,interest_calculator);
                     ftrans.commit();
                 }
