@@ -3,8 +3,11 @@ package com.example.math_app;
 //https://github.com/PrivacyApps/html-textview
 //https://github.com/mirrajabi/search-dialog
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -24,7 +27,6 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.math_app.fragments.Fragment_BugReport;
-import com.example.math_app.fragments.Fragment_MainScreen;
 import com.example.math_app.fragments.calculators.Fragment_Interest_Calculator;
 import com.example.math_app.fragments.calculators.Fragment_quad_calc;
 import com.example.math_app.fragments.gymnaasium.Fragment_Gymnaasium_1;
@@ -263,8 +265,6 @@ public class MainActivity extends AppCompatActivity
     Fragment_quad_calc quad_calc = new Fragment_quad_calc();
     Fragment_Interest_Calculator interest_calculator = new Fragment_Interest_Calculator();
 
-    Fragment_MainScreen mainScreen = new Fragment_MainScreen();
-
     Fragment_Klass_1_1 klass_1_1 = new Fragment_Klass_1_1();
     Fragment_Klass_1_2 klass_1_2 = new Fragment_Klass_1_2();
     Fragment_Klass_1_3 klass_1_3 = new Fragment_Klass_1_3();
@@ -495,11 +495,6 @@ public class MainActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_main);
 
-
-        FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
-        ftrans.replace(R.id.container, mainScreen);
-        ftrans.commit();
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -541,859 +536,31 @@ public class MainActivity extends AppCompatActivity
                 FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
                 // 1. klass
                 // Arvud
-                if(groupPosition == KLASS_1 && childPosition == 0 ){
-                    ftrans.replace(R.id.container, klass_1_1);
+
+                if(groupPosition < GYMNAASIUM) {
+                    String klass = "klass_" + groupPosition + "_" + String.valueOf(childPosition + 1);
+                    ftrans.replace(R.id.container, fragmnetMap.get(klass));
                     ftrans.commit();
                 }
-                if(groupPosition == KLASS_1 && childPosition == 1 ){
-                    ftrans.replace(R.id.container, klass_1_2);
+                else if(groupPosition == GYMNAASIUM){
+                    //gymnaasium_1
+                    String klass = "gymnaasium_" + String.valueOf(childPosition + 1);
+                    ftrans.replace(R.id.container, fragmnetMap.get(klass));
                     ftrans.commit();
                 }
-                // Arvutamine
-                if(groupPosition == KLASS_1 && childPosition == 2 ){
-                    ftrans.replace(R.id.container, klass_1_3);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_1 && childPosition == 3 ){
-                    ftrans.replace(R.id.container, klass_1_4);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_1 && childPosition == 4 ){
-                    ftrans.replace(R.id.container, klass_1_5);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_1 && childPosition == 5 ){
-                    ftrans.replace(R.id.container, klass_1_6);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_1 && childPosition == 6 ){
-                    ftrans.replace(R.id.container, klass_1_7);
-                    ftrans.commit();
-                }
-                // Mõõtühikud
-                if(groupPosition == KLASS_1 && childPosition == 7 ){
-                    ftrans.replace(R.id.container, klass_1_8);
-                    ftrans.commit();
-                }
-                // Geomeetrilised kujundid
-                if(groupPosition == KLASS_1 && childPosition == 8 ){
-                    ftrans.replace(R.id.container, klass_1_9);
-                    ftrans.commit();
-                }
-                // 2. klass
-                //Arvud
-                if(groupPosition == KLASS_2 && childPosition == 0 ){
-                    ftrans.replace(R.id.container,klass_2_1);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 1 ){
-                    ftrans.replace(R.id.container,klass_2_2);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 2 ){
-                    ftrans.replace(R.id.container,klass_2_3);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 3 ){
-                    ftrans.replace(R.id.container,klass_2_4);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 4 ){
-                    ftrans.replace(R.id.container,klass_2_5);
-                    ftrans.commit();
-                }
-                // Arvutamine
-                if(groupPosition == KLASS_2 && childPosition == 5 ){
-                    ftrans.replace(R.id.container,klass_2_6);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 6 ){
-                    ftrans.replace(R.id.container,klass_2_7);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 7 ){
-                    ftrans.replace(R.id.container,klass_2_8);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 8 ){
-                    ftrans.replace(R.id.container,klass_2_9);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 9 ){
-                    ftrans.replace(R.id.container,klass_2_10);
-                    ftrans.commit();
-                }
-                // Mõõtühikud
-                if(groupPosition == KLASS_2 && childPosition == 10 ){
-                    ftrans.replace(R.id.container,klass_2_11);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 11 ){
-                    ftrans.replace(R.id.container,klass_2_12);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 12 ){
-                    ftrans.replace(R.id.container,klass_2_13);
-                    ftrans.commit();
-                }
-                //  Algebra ja funktsioonid
-                if(groupPosition == KLASS_2 && childPosition == 13 ){
-                    ftrans.replace(R.id.container,klass_2_14);
-                    ftrans.commit();
-                }
-                // Geomeetria
-                if(groupPosition == KLASS_2 && childPosition == 14 ){
-                    ftrans.replace(R.id.container,klass_2_15);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 15 ){
-                    ftrans.replace(R.id.container,klass_2_16);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 16 ){
-                    ftrans.replace(R.id.container,klass_2_17);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 17 ){
-                    ftrans.replace(R.id.container,klass_2_18);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 18 ){
-                    ftrans.replace(R.id.container,klass_2_19);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_2 && childPosition == 19 ){
-                    ftrans.replace(R.id.container,klass_2_20);
-                    ftrans.commit();
-                }
-                // 3. klass
-                // Arvud
-                if(groupPosition == KLASS_3 && childPosition == 0 ){
-                    ftrans.replace(R.id.container,klass_3_1);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_3 && childPosition == 1 ){
-                    ftrans.replace(R.id.container,klass_3_2);
-                    ftrans.commit();
-                }
-                // Arvutamine
-                if(groupPosition == KLASS_3 && childPosition == 2 ){
-                    ftrans.replace(R.id.container,klass_3_3);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_3 && childPosition == 3 ){
-                    ftrans.replace(R.id.container,klass_3_4);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_3 && childPosition == 4 ){
-                    ftrans.replace(R.id.container,klass_3_5);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_3 && childPosition == 5 ){
-                    ftrans.replace(R.id.container,klass_3_6);
-                    ftrans.commit();
-                }
-                // Mõõtühikud
-                if(groupPosition == KLASS_3 && childPosition == 6 ){
-                    ftrans.replace(R.id.container,klass_3_7);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_3 && childPosition == 7 ){
-                    ftrans.replace(R.id.container,klass_3_8);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_3 && childPosition == 8 ){
-                    ftrans.replace(R.id.container,klass_3_9);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_3 && childPosition == 9 ){
-                    ftrans.replace(R.id.container,klass_3_10);
-                    ftrans.commit();
-                }
-                // Algebra ja funktsioonid
-                if(groupPosition == KLASS_3 && childPosition == 10 ){
-                    ftrans.replace(R.id.container,klass_3_11);
-                    ftrans.commit();
-                }
-                // Geomeetria
-                if(groupPosition == KLASS_3 && childPosition == 11 ){
-                    ftrans.replace(R.id.container,klass_3_12);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_3 && childPosition == 12 ){
-                    ftrans.replace(R.id.container,klass_3_13);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_3 && childPosition == 13 ){
-                    ftrans.replace(R.id.container,klass_3_14);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_3 && childPosition == 14 ){
-                    ftrans.replace(R.id.container,klass_3_15);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_3 && childPosition == 15 ){
-                    ftrans.replace(R.id.container,klass_3_16);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_3 && childPosition == 16 ){
-                    ftrans.replace(R.id.container,klass_3_17);
-                    ftrans.commit();
-                }
-                // 4. klass
-                // Arvutamine
-                if(groupPosition == KLASS_4 && childPosition == 0 ){
-                    ftrans.replace(R.id.container,klass_4_1);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_4 && childPosition == 1 ){
-                    ftrans.replace(R.id.container,klass_4_2);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_4 && childPosition == 2 ){
-                    ftrans.replace(R.id.container,klass_4_3);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_4 && childPosition == 3 ){
-                    ftrans.replace(R.id.container,klass_4_4);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_4 && childPosition == 4 ){
-                    ftrans.replace(R.id.container,klass_4_5);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_4 && childPosition == 5 ){
-                    ftrans.replace(R.id.container,klass_4_6);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_4 && childPosition == 6 ){
-                    ftrans.replace(R.id.container,klass_4_7);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_4 && childPosition == 7 ){
-                    ftrans.replace(R.id.container,klass_4_8);
-                    ftrans.commit();
-                }
-                // Ühe tehtega võrrandid
-                if(groupPosition == KLASS_4 && childPosition == 8 ){
-                    ftrans.replace(R.id.container,klass_4_9);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_4 && childPosition == 9 ){
-                    ftrans.replace(R.id.container,klass_4_10);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_4 && childPosition == 10 ){
-                    ftrans.replace(R.id.container,klass_4_11);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_4 && childPosition == 11 ){
-                    ftrans.replace(R.id.container,klass_4_12);
-                    ftrans.commit();
-                }
-                // Geomeetria
-                if(groupPosition == KLASS_4 && childPosition == 12 ){
-                    ftrans.replace(R.id.container,klass_4_13);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_4 && childPosition == 13 ){
-                    ftrans.replace(R.id.container,klass_4_14);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_4 && childPosition == 14 ){
-                    ftrans.replace(R.id.container,klass_4_15);
-                    ftrans.commit();
-                }
-                // 5. klass
-                // Arvud
-                if(groupPosition == KLASS_5 && childPosition == 0 ){
-                    ftrans.replace(R.id.container,klass_5_1);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 1 ){
-                    ftrans.replace(R.id.container,klass_5_2);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 2 ){
-                    ftrans.replace(R.id.container,klass_5_3);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 3 ){
-                    ftrans.replace(R.id.container,klass_5_4);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 4 ){
-                    ftrans.replace(R.id.container,klass_5_5);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 5 ){
-                    ftrans.replace(R.id.container,klass_5_6);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 6 ){
-                    ftrans.replace(R.id.container,klass_5_7);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 7 ){
-                    ftrans.replace(R.id.container,klass_5_8);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 8 ){
-                    ftrans.replace(R.id.container,klass_5_9);
-                    ftrans.commit();
-                }
-                // Arvutamine
-                if(groupPosition == KLASS_5 && childPosition == 9 ){
-                    ftrans.replace(R.id.container,klass_5_10);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 10 ){
-                    ftrans.replace(R.id.container,klass_5_11);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 11 ){
-                    ftrans.replace(R.id.container,klass_5_12);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 12 ){
-                    ftrans.replace(R.id.container,klass_5_13);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 13 ){
-                    ftrans.replace(R.id.container,klass_5_14);
-                    ftrans.commit();
-                }
-                // Mõõtühikud
-                if(groupPosition == KLASS_5 && childPosition == 14 ){
-                    ftrans.replace(R.id.container,klass_5_15);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 15 ){
-                    ftrans.replace(R.id.container,klass_5_16);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 16 ){
-                    ftrans.replace(R.id.container,klass_5_17);
-                    ftrans.commit();
-                }
-                // Andmed ja diagrammid
-                if(groupPosition == KLASS_5 && childPosition == 17 ){
-                    ftrans.replace(R.id.container,klass_5_18);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 18 ){
-                    ftrans.replace(R.id.container,klass_5_19);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 19 ){
-                    ftrans.replace(R.id.container,klass_5_20);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 20 ){
-                    ftrans.replace(R.id.container,klass_5_21);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 21 ){
-                    ftrans.replace(R.id.container,klass_5_22);
-                    ftrans.commit();
-                }
-                // Algebra ja funktsioonid
-                if(groupPosition == KLASS_5 && childPosition == 22 ){
-                    ftrans.replace(R.id.container,klass_5_23);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 23 ){
-                    ftrans.replace(R.id.container,klass_5_24);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 24 ){
-                    ftrans.replace(R.id.container,klass_5_25);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 25 ){
-                    ftrans.replace(R.id.container,klass_5_26);
-                    ftrans.commit();
-                }
-                // Geomeetria
-                if(groupPosition == KLASS_5 && childPosition == 26 ){
-                    ftrans.replace(R.id.container,klass_5_27);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 27 ){
-                    ftrans.replace(R.id.container,klass_5_28);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 28 ){
-                    ftrans.replace(R.id.container,klass_5_29);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 29 ){
-                    ftrans.replace(R.id.container,klass_5_30);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 30 ){
-                    ftrans.replace(R.id.container,klass_5_31);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_5 && childPosition == 31 ){
-                    ftrans.replace(R.id.container,klass_5_32);
-                    ftrans.commit();
-                }
-                // 6. klass
-                // Arvud
-                if(groupPosition == KLASS_6 && childPosition == 0 ){
-                    ftrans.replace(R.id.container,klass_6_1);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 1 ){
-                    ftrans.replace(R.id.container,klass_6_2);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 2 ){
-                    ftrans.replace(R.id.container,klass_6_3);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 3 ){
-                    ftrans.replace(R.id.container,klass_6_4);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 4 ){
-                    ftrans.replace(R.id.container,klass_6_5);
-                    ftrans.commit();
-                }
-                // Arvutamine
-                if(groupPosition == KLASS_6 && childPosition == 5 ){
-                    ftrans.replace(R.id.container,klass_6_6);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 6 ){
-                    ftrans.replace(R.id.container,klass_6_7);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 7 ){
-                    ftrans.replace(R.id.container,klass_6_8);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 8 ){
-                    ftrans.replace(R.id.container,klass_6_9);
-                    ftrans.commit();
-                }
-                // Joonestamine
-                if(groupPosition == KLASS_6 && childPosition == 9 ){
-                    ftrans.replace(R.id.container,klass_6_10);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 10 ){
-                    ftrans.replace(R.id.container,klass_6_11);
-                    ftrans.commit();
-                }
-                // Algebra ja funktsioonid
-                if(groupPosition == KLASS_6 && childPosition == 11 ){
-                    ftrans.replace(R.id.container,klass_6_12);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 12 ){
-                    ftrans.replace(R.id.container,klass_6_13);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 13 ){
-                    ftrans.replace(R.id.container,klass_6_14);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 14 ){
-                    ftrans.replace(R.id.container,klass_6_15);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 15 ){
-                    ftrans.replace(R.id.container,klass_6_16);
-                    ftrans.commit();
-                }
-                // Geomeetria
-                if(groupPosition == KLASS_6 && childPosition == 16 ){
-                    ftrans.replace(R.id.container,klass_6_17);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 17 ){
-                    ftrans.replace(R.id.container,klass_6_18);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 18 ){
-                    ftrans.replace(R.id.container,klass_6_19);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 19 ){
-                    ftrans.replace(R.id.container,klass_6_20);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 20 ){
-                    ftrans.replace(R.id.container,klass_6_21);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 21 ){
-                    ftrans.replace(R.id.container,klass_6_22);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 22 ){
-                    ftrans.replace(R.id.container,klass_6_23);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_6 && childPosition == 23 ){
-                    ftrans.replace(R.id.container,klass_6_24);
-                    ftrans.commit();
-                }
-                // 7. klass
-                // Arvud
-                if(groupPosition == KLASS_7 && childPosition == 0 ){
-                    ftrans.replace(R.id.container,klass_7_1);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 1 ){
-                    ftrans.replace(R.id.container,klass_7_2);
-                    ftrans.commit();
-                }
-                // Protsentarvutus
-                if(groupPosition == KLASS_7 && childPosition == 2 ){
-                    ftrans.replace(R.id.container,klass_7_3);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 3 ){
-                    ftrans.replace(R.id.container,klass_7_4);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 4 ){
-                    ftrans.replace(R.id.container,klass_7_5);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 5 ){
-                    ftrans.replace(R.id.container,klass_7_6);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 6 ){
-                    ftrans.replace(R.id.container,klass_7_7);
-                    ftrans.commit();
-                }
-                // Astendamine
-                if(groupPosition == KLASS_7 && childPosition == 7 ){
-                    ftrans.replace(R.id.container,klass_7_8);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 8 ){
-                    ftrans.replace(R.id.container,klass_7_9);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 9 ){
-                    ftrans.replace(R.id.container,klass_7_10);
-                    ftrans.commit();
-                }
-                // Statistika, andmed
-                if(groupPosition == KLASS_7 && childPosition == 10 ){
-                    ftrans.replace(R.id.container,klass_7_11);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 11 ){
-                    ftrans.replace(R.id.container,klass_7_12);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 12 ){
-                    ftrans.replace(R.id.container,klass_7_13);
-                    ftrans.commit();
-                }
-                // Võrrandid
-                if(groupPosition == KLASS_7 && childPosition == 13 ){
-                    ftrans.replace(R.id.container,klass_7_14);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 14 ){
-                    ftrans.replace(R.id.container,klass_7_15);
-                    ftrans.commit();
-                }
-                // Funktsioonid
-                if(groupPosition == KLASS_7 && childPosition == 15 ){
-                    ftrans.replace(R.id.container,klass_7_16);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 16 ){
-                    ftrans.replace(R.id.container,klass_7_17);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 17 ){
-                    ftrans.replace(R.id.container,klass_7_18);
-                    ftrans.commit();
-                }
-                // Geomeetria
-                if(groupPosition == KLASS_7 && childPosition == 18 ){
-                    ftrans.replace(R.id.container,klass_7_19);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 19 ){
-                    ftrans.replace(R.id.container,klass_7_20);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 20 ){
-                    ftrans.replace(R.id.container,klass_7_21);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 21 ){
-                    ftrans.replace(R.id.container,klass_7_22);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_7 && childPosition == 22 ){
-                    ftrans.replace(R.id.container,klass_7_23);
-                    ftrans.commit();
-                }
-                // 8. klass
-                // Arvud, arvutamine
-                if(groupPosition == KLASS_8 && childPosition == 0 ){
-                    ftrans.replace(R.id.container,klass_8_1);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 1 ){
-                    ftrans.replace(R.id.container,klass_8_2);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 2 ){
-                    ftrans.replace(R.id.container,klass_8_3);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 3 ){
-                    ftrans.replace(R.id.container,klass_8_4);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 4 ){
-                    ftrans.replace(R.id.container,klass_8_5);
-                    ftrans.commit();
-                }
-                // Algebra ja funktsioonid
-                if(groupPosition == KLASS_8 && childPosition == 5 ){
-                    ftrans.replace(R.id.container,klass_8_6);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 6 ){
-                    ftrans.replace(R.id.container,klass_8_7);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 7 ){
-                    ftrans.replace(R.id.container,klass_8_8);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 8 ){
-                    ftrans.replace(R.id.container,klass_8_9);
-                    ftrans.commit();
-                }
-                // Võrrandid
-                if(groupPosition == KLASS_8 && childPosition == 9 ){
-                    ftrans.replace(R.id.container,klass_8_10);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 10 ){
-                    ftrans.replace(R.id.container,klass_8_11);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 11 ){
-                    ftrans.replace(R.id.container,klass_8_12);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 12 ){
-                    ftrans.replace(R.id.container,klass_8_13);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 13 ){
-                    ftrans.replace(R.id.container,klass_8_14);
-                    ftrans.commit();
-                }
-                // Statistika, tõenäosus
-                if(groupPosition == KLASS_8 && childPosition == 14 ){
-                    ftrans.replace(R.id.container,klass_8_15);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 15 ){
-                    ftrans.replace(R.id.container,klass_8_16);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 16 ){
-                    ftrans.replace(R.id.container,klass_8_17);
-                    ftrans.commit();
-                }
-                // Geomeetria
-                if(groupPosition == KLASS_8 && childPosition == 17 ){
-                    ftrans.replace(R.id.container,klass_8_18);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 18 ){
-                    ftrans.replace(R.id.container,klass_8_19);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 19 ){
-                    ftrans.replace(R.id.container,klass_8_20);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 20 ){
-                    ftrans.replace(R.id.container,klass_8_21);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 21 ){
-                    ftrans.replace(R.id.container,klass_8_22);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 22 ){
-                    ftrans.replace(R.id.container,klass_8_23);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 23 ){
-                    ftrans.replace(R.id.container,klass_8_24);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 24 ){
-                    ftrans.replace(R.id.container,klass_8_25);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_8 && childPosition == 25 ){
-                    ftrans.replace(R.id.container,klass_8_26);
-                    ftrans.commit();
-                }
-                // 9. klass
-                // Arvud, arvutamine
-                if(groupPosition == KLASS_9 && childPosition == 0 ){
-                    ftrans.replace(R.id.container,klass_9_1);
-                }
-                // Algebra ja funktsioonid
-                if(groupPosition == KLASS_9 && childPosition == 1 ){
-                    ftrans.replace(R.id.container,klass_9_2);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 2 ){
-                    ftrans.replace(R.id.container,klass_9_3);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 3 ){
-                    ftrans.replace(R.id.container,klass_9_4);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 4 ){
-                    ftrans.replace(R.id.container,klass_9_5);
-                    ftrans.commit();
-                }
-                // Tõenäosus, statistika
-                if(groupPosition == KLASS_9 && childPosition == 5 ){
-                    ftrans.replace(R.id.container,klass_9_6);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 6 ){
-                    ftrans.replace(R.id.container,klass_9_7);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 7 ){
-                    ftrans.replace(R.id.container,klass_9_8);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 8 ){
-                    ftrans.replace(R.id.container,klass_9_9);
-                    ftrans.commit();
-                }
-                // Geomeetria
-                if(groupPosition == KLASS_9 && childPosition == 9 ){
-                    ftrans.replace(R.id.container,klass_9_10);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 10 ){
-                    ftrans.replace(R.id.container,klass_9_11);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 11 ){
-                    ftrans.replace(R.id.container,klass_9_12);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 12 ){
-                    ftrans.replace(R.id.container,klass_9_13);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 13 ){
-                    ftrans.replace(R.id.container,klass_9_14);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 14 ){
-                    ftrans.replace(R.id.container,klass_9_15);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 15 ){
-                    ftrans.replace(R.id.container,klass_9_16);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 16 ){
-                    ftrans.replace(R.id.container,klass_9_17);
-                    ftrans.commit();
-                }
-                if(groupPosition == KLASS_9 && childPosition == 17 ){
-                    ftrans.replace(R.id.container,klass_9_18);
-                    ftrans.commit();
-                }
-                // Gümnaasium
-                // Avaldised ja arvhulgad
-                if(groupPosition == GYMNAASIUM && childPosition == 0 ){
-                    ftrans.replace(R.id.container,gymnaasium_1);
-                    ftrans.commit();
-                }
-                // Võrrandid ja võrrandisüsteemid
-                if(groupPosition == GYMNAASIUM && childPosition == 1 ){
-                    ftrans.replace(R.id.container,gymnaasium_2);
-                    ftrans.commit();
-                }
-                // Trigonomeetria I ja võrratused
-                if(groupPosition == GYMNAASIUM && childPosition == 2 ){
-                    ftrans.replace(R.id.container,gymnaasium_3);
-                    ftrans.commit();
-                }
-                // Trigonomeetria II
-                if(groupPosition == GYMNAASIUM && childPosition == 3 ){
-                    ftrans.replace(R.id.container,gymnaasium_4);
-                    ftrans.commit();
-                }
-                // Vektor tasandil
-                if(groupPosition == GYMNAASIUM && childPosition == 4 ){
-                    ftrans.replace(R.id.container,gymnaasium_5);
-                    ftrans.commit();
-                }
-                // Tõenäosus ja statistika
-                if(groupPosition == GYMNAASIUM && childPosition == 5 ){
-                    ftrans.replace(R.id.container,gymnaasium_6);
-                    ftrans.commit();
-                }
-                // Funktsioonid I ja jadad
-                if(groupPosition == GYMNAASIUM && childPosition == 6 ){
-                    ftrans.replace(R.id.container,gymnaasium_7);
-                    ftrans.commit();
-                }
-                // Funktsioonid II
-                if(groupPosition == GYMNAASIUM && childPosition == 7 ){
-                    ftrans.replace(R.id.container,gymnaasium_8);
-                    ftrans.commit();
-                }
-                // Funktsiooni piirväärtus ja tuletis
-                if(groupPosition == GYMNAASIUM && childPosition == 8 ){
-                    ftrans.replace(R.id.container,gymnaasium_9);
-                    ftrans.commit();
-                }
-                // Integraal
-                if(groupPosition == GYMNAASIUM && childPosition == 9 ){
-                    ftrans.replace(R.id.container,gymnaasium_10);
-                    ftrans.commit();
-                }
-                // Geomeetria
-                if(groupPosition == GYMNAASIUM && childPosition == 10 ){
-                    ftrans.replace(R.id.container,gymnaasium_11);
-                    ftrans.commit();
-                }
+
                 // Kalkulaatorid
                 // Ruutvõrrandi kalkulaator
-                if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_RUUT_LAH){
+                else if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_RUUT_LAH){
                     ftrans.replace(R.id.container,quad_calc);
                     ftrans.commit();
                 }
                 // Intresside kalkulaator
-                if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_INTRESSI_LAH){
+                else if(groupPosition==KALKULAATORID && childPosition==SUB_KALKULAATORID_INTRESSI_LAH){
                     ftrans.replace(R.id.container,interest_calculator);
                     ftrans.commit();
                 }
+
                 //For bugereport
                 group = groupPosition;
                 child = childPosition;
@@ -1417,6 +584,7 @@ public class MainActivity extends AppCompatActivity
         });
 
     }
+
 
     private void prepareListData() {
         listDataHeader = new ArrayList<String>();
@@ -1688,6 +856,7 @@ public class MainActivity extends AppCompatActivity
                         menuItem.setChecked(true);
                         mDrawerLayout.closeDrawers();
                         return true;
+
                     }
                 });
     }
@@ -1710,6 +879,7 @@ public class MainActivity extends AppCompatActivity
 
         MenuItem searcItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searcItem.getActionView();
+        
 
         searchView.setOnQueryTextListener(  new SearchView.OnQueryTextListener() {
                     @Override
@@ -1752,8 +922,9 @@ public class MainActivity extends AppCompatActivity
             return true;
         */} if(id == R.id.action_favorite){
             FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
-            ftrans.replace(R.id.container,bugReport, "fragment1");
-            ftrans.addToBackStack("tag");
+            ftrans.replace(R.id.container,bugReport);
+            //ftrans.addToBackStack("teretere");
+
             if(saveName==null){
             } else {
                 Bundle bundle = new Bundle();
@@ -1766,7 +937,6 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-
 
     private void setFragment(String title) {
         FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
@@ -1833,6 +1003,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
 }
