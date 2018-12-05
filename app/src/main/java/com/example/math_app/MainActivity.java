@@ -359,10 +359,10 @@ public class MainActivity extends AppCompatActivity
                                         int groupPosition,
                                         int childPosition, long id) {
                 //Log.d("DEBUG", "submenu item clicked");
-                Toast.makeText(MainActivity.this,
+                /*Toast.makeText(MainActivity.this,
                         "Header: "+String.valueOf(groupPosition) +
                                 "\nItem: "+ String.valueOf(childPosition), Toast.LENGTH_SHORT)
-                        .show();
+                        .show();*/
                 view.setSelected(true);
                 FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
 
@@ -635,6 +635,10 @@ https://www.dev2qa.com/android-actionbar-searchview-autocomplete-example/
             FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
             ftrans.replace(R.id.container, headersFragmnetMap.get(title));
             ftrans.commit();
+
+            state = false;
+            invalidateOptionsMenu();
+            saveName = title;
         }catch (Exception e){
         }
     }
