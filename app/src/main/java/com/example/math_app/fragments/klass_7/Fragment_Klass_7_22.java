@@ -100,7 +100,8 @@ public class Fragment_Klass_7_22 extends Fragment {
         webView.getSettings().setAppCacheEnabled(true);
         //webView.loadUrl("http://www.google.com");
         webView.setWebViewClient(new WebViewClient());
-
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(true);
         webView.loadUrl("file:///android_asset/7_klass_materjalid/7_klass_22.html");
 
     }

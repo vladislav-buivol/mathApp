@@ -100,7 +100,8 @@ public class Fragment_Gymnaasium_5 extends Fragment {
         webView.getSettings().setAppCacheEnabled(true);
         //webView.loadUrl("http://www.google.com");
         webView.setWebViewClient(new WebViewClient());
-
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(true);
         webView.loadUrl("file:///android_asset/gymnaasium_materjalid/gymnaasium_5/gymnaasium_5.html");
 
     }

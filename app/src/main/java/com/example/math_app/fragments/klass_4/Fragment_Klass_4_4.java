@@ -100,7 +100,8 @@ public class Fragment_Klass_4_4 extends Fragment {
         webView.getSettings().setAppCacheEnabled(true);
         //webView.loadUrl("http://www.google.com");
         webView.setWebViewClient(new WebViewClient());
-
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(true);
         webView.loadUrl("file:///android_asset/4_klass_materjalid/4_klass_4.html");
 
     }
