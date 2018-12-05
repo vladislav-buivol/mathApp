@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -251,6 +253,8 @@ public class Fragment_BugReport extends Fragment {
     String status;
     String fragmentStringName;
     int counter;
+
+    boolean state = false;
 
     Fragment_quad_calc quad_calc = new Fragment_quad_calc();
     Fragment_Interest_Calculator interest_calculator = new Fragment_Interest_Calculator();
@@ -524,9 +528,12 @@ public class Fragment_BugReport extends Fragment {
             frag = interest_calculator;
         }
 
-        return inflater.inflate(R.layout.activity_bug_report, container, false);
+        View v =  inflater.inflate(R.layout.activity_bug_report, container, false);
+        setHasOptionsMenu(true);
+        return v;
     }
-    @Override
+
+        @Override
     public void onViewCreated(final View view, final Bundle savedInstanceState){
         defText = getView().findViewById(R.id.definitsioon);
         defText.setText(definitsioon);
