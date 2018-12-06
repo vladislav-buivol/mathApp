@@ -100,7 +100,8 @@ public class Fragment_Klass_3_6 extends Fragment {
         webView.getSettings().setAppCacheEnabled(true);
         //webView.loadUrl("http://www.google.com");
         webView.setWebViewClient(new WebViewClient());
-
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(true);
         webView.loadUrl("file:///android_asset/3_klass_materjalid/3_klass_6.html");
 
     }

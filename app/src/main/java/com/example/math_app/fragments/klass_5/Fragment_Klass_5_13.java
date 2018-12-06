@@ -100,8 +100,9 @@ public class Fragment_Klass_5_13 extends Fragment {
         webView.getSettings().setAppCacheEnabled(true);
         //webView.loadUrl("http://www.google.com");
         webView.setWebViewClient(new WebViewClient());
-
-        webView.loadUrl("file:///android_asset/5_klass_materjalid/murrud/5_klass_13/5_klass_13.html");
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(true);
+        webView.loadUrl("file:///android_asset/5_klass_materjalid/5_klass_13.html");
 
     }
 
