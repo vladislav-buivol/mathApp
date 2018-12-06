@@ -483,8 +483,6 @@ public class MainActivity extends AppCompatActivity
         helpMap.put(8,26);
         helpMap.put(9,18);
         helpMap.put(10,11);
-        String folder = "7_klass_materjalid";
-        String fl = "7_klass_1.html";
         String kl = "klass";
 
         StringBuilder emptyWord = new StringBuilder();
@@ -498,15 +496,10 @@ public class MainActivity extends AppCompatActivity
             int x=0;
             do{
                 x++;
-                //System.out.println(x);
                 try {
                     String kls = String.valueOf(i)+"_klass_materjalid"+"/"+String.valueOf(i)+""+"_klass_"+String.valueOf(x)+".html";
-                    //is=getAssets().open("7_klass_materjalid/7_klass_1.html");
                     is=getAssets().open(kls);
                     Document doc = Jsoup.parse(is, "UTF8", "http://example.com/");
-                    //Log.d("MYLog", String.valueOf("I am work"));
-                    //Log.d("MYLog", doc.body().text());
-                    //System.out.println(doc.body().text());
                     materials.add(doc.body().text());
                     String str = kl+"_"+String.valueOf(i)+"_"+String.valueOf(x);
 
@@ -515,12 +508,8 @@ public class MainActivity extends AppCompatActivity
                 } catch (Exception e) {
                     Log.d("MYLog", String.valueOf(e));
                 }
-                //System.out.println("asd���������");
-                //System.out.println("asd���������".replace("�","XXXX"));
             }
             while (x != helpMap.get(i));
-            //System.out.println("============================ "+i);
-            //mapKlassMat.put(str,materials);
         }
 
         for(int n = 1; n != 12;n++){
@@ -530,8 +519,6 @@ public class MainActivity extends AppCompatActivity
                 String kls = "gymnaasium_materjalid"+"/"+"gymnaasium_" + String.valueOf(n)+"/"+"gymnaasium_" + String.valueOf(n)+".html";
                 is=getAssets().open(kls);
                 Document doc = Jsoup.parse(is, "UTF-8", "http://example.com/");
-                //Log.d("MYLogGYM", String.valueOf("I am gym"));
-                //Log.d("MYLogGYM", doc.body().text());
                 materials.add(doc.body().text());
                 String s = "klass_gymnasium_"+ String.valueOf(n);
                 mapKlassMat.put(s,teemad.get(s)+ empty+"->"+empty + doc.body().text());
@@ -539,17 +526,6 @@ public class MainActivity extends AppCompatActivity
                 Log.d("MYLogGYM", String.valueOf(e));
             }
         }
-
-
-        //System.out.println(mapKlassMat.keySet() + "SSSSSSSSSSSSSSSSSEEEEEEETTT");
-
-
-        //Elements links = doc.selet("a[href]");
-
-        //builder.append(title).append("\n");
-        //"file:///android_asset/7_klass_materjalid/7_klass_1.html"
-
-
         for(String el:headers){
             String[] parts = el.split("->");
             String name = parts[0].trim();
@@ -580,15 +556,9 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
-        //List<String> lemmikud = new ArrayList<String>();
-        //lemmikud.add("Minu lemmikud");
-
         List<String> kalkulaatorid = new ArrayList<String>();
         kalkulaatorid.add("Ruutvõrrandi kalkulaator"); //SUB_KALKULAATORID_RUUT_LAH = 0;
         kalkulaatorid.add("Intressi kalkulaator"); //SUB_KALKULAATORID_INTRESSI_LAH = 1;
-
-        //Log.i("TAAG",listDataChild.toString());
-        //Log.i("TAAG",listDataHeader.toString());
 
 
         //listDataChild.put(listDataHeader.get(LEMMIKUD), lemmikud);
@@ -679,8 +649,6 @@ https://www.dev2qa.com/android-actionbar-searchview-autocomplete-example/
             @Override
             public boolean onQueryTextSubmit(String query) {
                 AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-                //alertDialog.setMessage("Search keyword is " + query);
-                //alertDialog.show();
                 setFragment(query.split("->")[0].trim());
                 return false;
             }
@@ -688,27 +656,6 @@ https://www.dev2qa.com/android-actionbar-searchview-autocomplete-example/
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                //dataArr1.add(newText);
-                //System.out.println(mapKlassMat.keySet());
-                //System.out.println(teemad.keySet());
-                /*for(String key: teemad.keySet()){
-                    for(Object el: mapKlassMat.get(key)){
-                        String str = String.valueOf(el);
-                        //dataArr1.add("TU");//öõüä
-                        String tmpq = newText.toLowerCase().replace("ä","").replace("õ","").replace("ü","").replace("ö","");
-                        str = str.replace("�","");
-                        if(str.toLowerCase().contains(tmpq.toLowerCase()) && !dataArr1.contains(tmpq.toLowerCase())){
-                            System.out.println(newText);
-                            System.out.println("HEEEEEEEEEEEEEEEEEEERRRRRRRRRREE");
-                            String tmp = key +" See olemas teemas: "+ teemad.get(key);
-                            System.out.println(tmp);
-                            dataArr1.add(newText);
-                        }
-                        //str1.toLowerCase().contains(str2.toLowerCase())
-                        //System.out.println(el);
-                    }
-                }
-*/
                 return false;
             }
         });
