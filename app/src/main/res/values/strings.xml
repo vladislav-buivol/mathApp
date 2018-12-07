@@ -22,5 +22,7 @@
     <string name="avalik">Programmi lähtekood on avaldatud GNU GPL litsentsi alusel ja materjalid on avaldatud Creative
         Commons Attribution-ShareAlike 4.0 International License alusel. Tarkvara kasutajatel on
         võimalus aidata kaasa arendustegevuses ja õppematerjalide kaasajastamisel ja täiendamisel.</string>
+    <string name="probleem">Probleemi kirjeldus...</string>
+    <string name="def">Definitsioon:</string>
 
 </resources>
