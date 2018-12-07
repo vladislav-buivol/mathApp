@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.example.math_app.R;
 
@@ -29,6 +31,8 @@ public class Fragment_MainScreen extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    WebView webView;
 
     public Fragment_MainScreen() {
         // Required empty public constructor
@@ -55,21 +59,6 @@ public class Fragment_MainScreen extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.content_main, container, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState){
     }
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -77,24 +66,11 @@ public class Fragment_MainScreen extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
-    /*@Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-*/
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -108,5 +84,24 @@ public class Fragment_MainScreen extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        webView = (WebView) getView().findViewById(R.id.web_view);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setAppCacheEnabled(true);
+        //webView.loadUrl("http://www.google.com");
+        webView.setWebViewClient(new WebViewClient());
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setDisplayZoomControls(true);
+        webView.loadUrl("file:///android_asset/content_main_screen/main_screen.html");
+
+    }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment__klass_9_1, container, false);
     }
 }

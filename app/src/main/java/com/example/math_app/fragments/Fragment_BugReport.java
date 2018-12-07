@@ -533,7 +533,16 @@ public class Fragment_BugReport extends Fragment {
         return v;
     }
 
-        @Override
+    /*@Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        if (state)
+        {
+            menu.getItem(0).setVisible(false);
+        }
+        super.onCreateOptionsMenu(menu,inflater);
+    }*/
+
+    @Override
     public void onViewCreated(final View view, final Bundle savedInstanceState){
         defText = getView().findViewById(R.id.definitsioon);
         defText.setText(definitsioon);
@@ -548,6 +557,7 @@ public class Fragment_BugReport extends Fragment {
                 String body = selgitus.getText().toString();
                 sendPost(definitsioon, body.trim());
                 Toast.makeText(getActivity(),"Viga Saadetud",Toast.LENGTH_SHORT).show();
+                selgitus.setText("");
             }
         });
         getView().setFocusableInTouchMode(true);
@@ -564,6 +574,7 @@ public class Fragment_BugReport extends Fragment {
                     transaction.replace(R.id.container, frag);
                     transaction.commit();
                     return true;
+
                 }
                 return false;
             }

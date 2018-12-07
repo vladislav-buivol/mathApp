@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity
     private int KLASS_9 = 8;
     private int GYMNAASIUM = 9;
     private int KALKULAATORID = 10;
+    private int AVALEHT = 11;
     private int SUB_KALKULAATORID_RUUT_LAH = 0;
     private int SUB_KALKULAATORID_INTRESSI_LAH = 1;
     private DrawerLayout mDrawerLayout;
@@ -333,6 +334,10 @@ public class MainActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_main);
 
+        FragmentTransaction ftrans = getSupportFragmentManager().beginTransaction();
+        ftrans.replace(R.id.container,fragment_mainScreen);
+        ftrans.commit();
+
         state = true;
         invalidateOptionsMenu();
 
@@ -390,12 +395,16 @@ public class MainActivity extends AppCompatActivity
                     String klass = "klass_" + groupPosition +"_" + String.valueOf(childPosition);
                     ftrans.replace(R.id.container, fragmnetMap.get(klass));
                     ftrans.commit();
+                    state = false;
+                    invalidateOptionsMenu();
                 }
                 else if(groupPosition == GYMNAASIUM+param){
                     //gymnaasium_1
                     String klass = "gymnaasium_" + String.valueOf(childPosition);
                     ftrans.replace(R.id.container, fragmnetMap.get(klass));
                     ftrans.commit();
+                    state = false;
+                    invalidateOptionsMenu();
                 }
 
                 // Kalkulaatorid
@@ -403,11 +412,21 @@ public class MainActivity extends AppCompatActivity
                 else if(groupPosition==KALKULAATORID+param && childPosition==SUB_KALKULAATORID_RUUT_LAH+param){
                     ftrans.replace(R.id.container,quad_calc);
                     ftrans.commit();
+                    state = false;
+                    invalidateOptionsMenu();
                 }
                 // Intresside kalkulaator
                 else if(groupPosition==KALKULAATORID+param && childPosition==SUB_KALKULAATORID_INTRESSI_LAH+param){
                     ftrans.replace(R.id.container,interest_calculator);
                     ftrans.commit();
+                    state = false;
+                    invalidateOptionsMenu();
+                }
+                else if(groupPosition==AVALEHT+param && childPosition==0+param){
+                    ftrans.replace(R.id.container,fragment_mainScreen);
+                    ftrans.commit();
+                    state = true;
+                    invalidateOptionsMenu();
                 }
                 groupPosition--;
                 childPosition--;
@@ -421,9 +440,6 @@ public class MainActivity extends AppCompatActivity
                 if (view_Group != null) {
                     view_Group.setBackgroundColor(Color.parseColor("#ffffff"));
                 }
-
-                state = false;
-                invalidateOptionsMenu();
 
                 view_Group = view;
                 view_Group.setBackgroundColor(Color.parseColor("#DDDDDD"));
@@ -447,7 +463,6 @@ public class MainActivity extends AppCompatActivity
         listDataChild = new HashMap<String, List<String>>();
 
         // Adding data header
-        //listDataHeader.add("Lemmikud");
         listDataHeader.add("1. klass");
         listDataHeader.add("2. klass");
         listDataHeader.add("3. klass");
@@ -459,6 +474,7 @@ public class MainActivity extends AppCompatActivity
         listDataHeader.add("9. klass");
         listDataHeader.add("Gümnaasium");
         listDataHeader.add("Kalkulaatorid");
+        listDataHeader.add("Avaleht");
         //listDataHeader.add("Ruutvõrrandi lahendaja");
 
 
@@ -581,6 +597,9 @@ public class MainActivity extends AppCompatActivity
         kalkulaatorid.add("Ruutvõrrandi kalkulaator"); //SUB_KALKULAATORID_RUUT_LAH = 0;
         kalkulaatorid.add("Intressi kalkulaator"); //SUB_KALKULAATORID_INTRESSI_LAH = 1;
 
+        List<String> avaleht = new ArrayList<String>();
+        avaleht.add("Avaleht");
+        avaleht.add("Teave");
 
         //listDataChild.put(listDataHeader.get(LEMMIKUD), lemmikud);
         listDataChild.put(listDataHeader.get(KLASS_1), klass_1);// Header, Child data
@@ -594,6 +613,7 @@ public class MainActivity extends AppCompatActivity
         listDataChild.put(listDataHeader.get(KLASS_9), klass_9);
         listDataChild.put(listDataHeader.get(GYMNAASIUM), gymnasium);
         listDataChild.put(listDataHeader.get(KALKULAATORID), kalkulaatorid);
+        listDataChild.put(listDataHeader.get(AVALEHT), avaleht);
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
