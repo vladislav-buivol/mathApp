@@ -116,5 +116,23 @@ div.abstract {width:100%;}
 #TBL-1{border-collapse:collapse;}
 #TBL-1 colgroup{border-left: 1px solid black;border-right:1px solid black;}
 #TBL-1{border-collapse:collapse;}
+div {
+  text-align: center;
+}
+span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.fit {
+  max-width: 99%;
+  max-height: 99%;
+}
 /* end css.sty */
 
