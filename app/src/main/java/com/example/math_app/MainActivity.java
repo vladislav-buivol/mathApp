@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.example.math_app.fragments.Fragment_BugReport;
 import com.example.math_app.fragments.Fragment_MainScreen;
+import com.example.math_app.fragments.Fragment_licence;
 import com.example.math_app.fragments.calculators.Fragment_Interest_Calculator;
 import com.example.math_app.fragments.calculators.Fragment_quad_calc;
 import com.example.math_app.fragments.gymnaasium.*;
@@ -294,6 +295,7 @@ public class MainActivity extends AppCompatActivity
 
     Fragment_BugReport bugReport = new Fragment_BugReport();
     Fragment_MainScreen fragment_mainScreen = new Fragment_MainScreen();
+    Fragment_licence fragment_licence = new Fragment_licence();
 
     int group;
     int child;
@@ -424,6 +426,12 @@ public class MainActivity extends AppCompatActivity
                 }
                 else if(groupPosition==AVALEHT+param && childPosition==0+param){
                     ftrans.replace(R.id.container,fragment_mainScreen);
+                    ftrans.commit();
+                    state = true;
+                    invalidateOptionsMenu();
+                }
+                else if(groupPosition==AVALEHT+param && childPosition==1+param){
+                    ftrans.replace(R.id.container,fragment_licence);
                     ftrans.commit();
                     state = true;
                     invalidateOptionsMenu();
