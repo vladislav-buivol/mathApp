@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_favorite"
-        android:icon="@drawable/baseline_info_orange_18dp"
+
+        android:icon="@drawable/baseline_info_main_orange_18dp"
         android:title="action_favorite"
         app:showAsAction="always" />
 
