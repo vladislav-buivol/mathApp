@@ -132,8 +132,8 @@ span {
   width: 50%;
 }
 .fit {
-  max-width: 99%;
-  max-height: 99%;
+  max-width: 25%;
+  max-height: 25%;
 }
 /* end css.sty */
 
