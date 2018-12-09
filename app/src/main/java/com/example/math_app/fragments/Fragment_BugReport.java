@@ -558,7 +558,7 @@ public class Fragment_BugReport extends Fragment {
             public void onClick(View v) {
                 String body = selgitus.getText().toString();
                 sendPost(definitsioon, body.trim());
-                Toast.makeText(getActivity(),"Viga Saadetud",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),"Viga Saadetud",Toast.LENGTH_SHORT).show();
                 selgitus.setText("");
             }
         });
@@ -581,6 +581,7 @@ public class Fragment_BugReport extends Fragment {
             }
         } );
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -621,6 +622,8 @@ public class Fragment_BugReport extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+
+
    public void sendPost(final String title, final String body) {
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -652,11 +655,23 @@ public class Fragment_BugReport extends Fragment {
 
                     conn.disconnect();
                     if(status.equals("201")){
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getActivity(),"Viga Saadetud",Toast.LENGTH_SHORT).show();
+                            }
+                        });
                         FragmentTransaction transaction = getFragmentManager().beginTransaction();
                         transaction.replace(R.id.container, frag);
                         transaction.commit();
                     }
                 } catch (Exception e) {
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getActivity(),"Kontrollige, kas internetiühendus on olemas",Toast.LENGTH_SHORT).show();
+                        }
+                    });
                     e.printStackTrace();
                 }
             }
