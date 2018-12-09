@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    tools:context=".Quadratic_calculator_Activity"
+    tools:context=".QuadraticCalculatorActivity"
     tools:layout_editor_absoluteY="50dp">
 
     <include layout="@layout/white" />
