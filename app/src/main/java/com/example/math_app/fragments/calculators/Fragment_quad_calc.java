@@ -154,6 +154,11 @@ public class Fragment_quad_calc extends Fragment {
                     inputC.getText().toString().trim().equals("-")){
                 String text = "Lahendid puuduvad";
                 info.setText(text);
+            } else if (inputA.getText().toString().trim().equals(".") ||
+                    inputB.getText().toString().trim().equals(".") ||
+                    inputC.getText().toString().trim().equals(".")){
+                String text = "Lahendid puuduvad";
+                info.setText(text);
             } else if (ifXNull()){
                 String text = "Nulliga ei saa jagada";
                 info.setText(text);

@@ -154,6 +154,10 @@ public class Fragment_Interest_Calculator extends Fragment {
                     inputPeriood.getText().toString().trim().equals("-") ||
                     inputIntress.getText().toString().trim().equals("-")){
                 emptyInputs();
+            } else if (inputSumma.getText().toString().trim().equals(".") ||
+                    inputPeriood.getText().toString().trim().equals(".") ||
+                    inputIntress.getText().toString().trim().equals(".")){
+                emptyInputs();
             } else {
                 calculate();
             }
