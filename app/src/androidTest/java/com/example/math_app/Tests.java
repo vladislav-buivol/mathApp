@@ -67,8 +67,7 @@ public class Tests {
 
     //@Test
     //public void favoriteTest() {
-        //onView(withId(R.id.action_favorite)).perform(click());
+      //  onView(withId(R.id.action_favorite)).perform(click());
     //}
-
 
 }
