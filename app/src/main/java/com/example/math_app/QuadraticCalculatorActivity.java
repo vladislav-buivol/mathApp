@@ -17,18 +17,18 @@ import android.widget.Toolbar;
 import static java.lang.StrictMath.round;
 
 public class QuadraticCalculatorActivity extends AppCompatActivity {
-    double a;
-    double b;
-    double c;
+    private double a;
+    private double b;
+    private double c;
 
-    TextView x1;
-    TextView x2;
+    private TextView x1;
+    private TextView x2;
 
-    TextView info;
+    private TextView info;
 
-    EditText inputA;
-    EditText inputB;
-    EditText inputC;
+    private EditText inputA;
+    private EditText inputB;
+    private EditText inputC;
 
     private TextWatcher watcher;
 
