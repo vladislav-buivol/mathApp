@@ -37,6 +37,7 @@ public class Fragment_quad_calc extends Fragment {
     double b;
     double c;
 
+    //Quadratic calculator textviews for quadratic equation anwsers.
     TextView x1;
     TextView x2;
 
@@ -200,10 +201,6 @@ public class Fragment_quad_calc extends Fragment {
         b = Double.parseDouble(inputB.getText().toString());
         c = Double.parseDouble(inputC.getText().toString());
         double underSquareRoot = Math.pow(b,2)-(4*a*c);
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
-        System.out.println(underSquareRoot);
         return underSquareRoot < 0;
     }
     public void calculate(){
