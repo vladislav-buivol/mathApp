@@ -246,20 +246,20 @@ public class MainActivity extends AppCompatActivity
     View view_Group;
 
     //private int LEMMIKUD = 0;
-    private int KLASS_1 = 0;
-    private int KLASS_2 = 1;
-    private int KLASS_3 = 2;
-    private int KLASS_4 = 3;
-    private int KLASS_5 = 4;
-    private int KLASS_6 = 5;
-    private int KLASS_7 = 6;
-    private int KLASS_8 = 7;
-    private int KLASS_9 = 8;
-    private int GYMNAASIUM = 9;
-    private int KALKULAATORID = 10;
-    private int AVALEHT = 11;
-    private int SUB_KALKULAATORID_RUUT_LAH = 0;
-    private int SUB_KALKULAATORID_INTRESSI_LAH = 1;
+    private final int KLASS_1 = 0;
+    private final int KLASS_2 = 1;
+    private final int KLASS_3 = 2;
+    private final int KLASS_4 = 3;
+    private final int KLASS_5 = 4;
+    private final int KLASS_6 = 5;
+    private final int KLASS_7 = 6;
+    private final int KLASS_8 = 7;
+    private final int KLASS_9 = 8;
+    private final int GYMNAASIUM = 9;
+    private final int KALKULAATORID = 10;
+    private final int AVALEHT = 11;
+    private final int SUB_KALKULAATORID_RUUT_LAH = 0;
+    private final int SUB_KALKULAATORID_INTRESSI_LAH = 1;
     private DrawerLayout mDrawerLayout;
 
     ExpandableListAdapter mMenuAdapter;
