@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.com/vladbbb/mathApp.svg?branch=master)](https://travis-ci.com/vladbbb/mathApp)
 
+[Materials](https://github.com/hendrikhiir/Lexicon-Pipeline)
+
 ## 10.12.2018 Release Notes (Iteration 4)
 This document gives an overview of the product state as of 10.12.2018 (end of 4th iteration).
 ### About This Release
